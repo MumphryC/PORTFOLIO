@@ -708,10 +708,6 @@ export default function ModernPortfolio() {
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <a
-                  href="/Caparas, Mumphry S..pdf" // replace with your actual file path
-                  download
-                >
                 <Button
                   size="lg"
                   variant="outline"
