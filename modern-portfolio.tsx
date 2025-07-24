@@ -187,8 +187,8 @@ export default function ModernPortfolio() {
   const allEducation = [
     {
       school: "State University",
-      degree: "Bachelor of Computer Science",
-      period: "2020 - 2024",
+      degree: "Bachelor of Science in Computer Engineering",
+      period: "September 2024 - July 2025",
       description:
         "Specialized in Software Engineering and Web Development. Graduated Magna Cum Laude with a focus on full-stack development, algorithms, and database systems.",
       logo: "/university-logo.png",
