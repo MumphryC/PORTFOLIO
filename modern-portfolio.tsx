@@ -642,11 +642,11 @@ export default function ModernPortfolio() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
               <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-                  Full Stack
+                  Computer
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  Developer
+                  Engineering
                 </span>
               </h1>
               <motion.div
@@ -666,8 +666,7 @@ export default function ModernPortfolio() {
               transition={{ delay: 0.7 }}
               className="text-xl lg:text-2xl text-gray-300 max-w-2xl leading-relaxed"
             >
-              Crafting exceptional digital experiences with modern technologies. Passionate about clean code, innovative
-              solutions, and user-centered design that makes a difference.
+              Fresh Computer Engineering graduate passionate about clean code, creative problem-solving, and user-centered design. Willing to learn, explore new technologies, and build digital experiences that make a difference.
             </motion.p>
 
             {/* Skills Preview */}
