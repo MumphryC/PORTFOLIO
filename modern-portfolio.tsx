@@ -646,7 +646,7 @@ export default function ModernPortfolio() {
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  Engineering
+                  Engineer
                 </span>
               </h1>
               <motion.div
@@ -708,6 +708,10 @@ export default function ModernPortfolio() {
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <a
+                  href="/Caparas, Mumphry S..pdf" // replace with your actual file path
+                  download
+                >
                 <Button
                   size="lg"
                   variant="outline"
