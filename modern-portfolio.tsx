@@ -568,7 +568,7 @@ export default function ModernPortfolio() {
 
               {/* Profile Image */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm z-10">
-                <img src="/BARONG.JPG" alt="Professional Developer" className="w-full h-full object-cover" />
+                <img src="/5R.JPG" alt="Professional Developer" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
               </div>
 
