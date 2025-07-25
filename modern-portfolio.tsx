@@ -1307,7 +1307,7 @@ export default function ModernPortfolio() {
 
   {/* Right Side: Logo */}
 
-  <div className="w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
+  <div className="w-35 h-35 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
 
     <img
 
@@ -1315,7 +1315,7 @@ export default function ModernPortfolio() {
 
       alt={edu.school}
 
-      className="w-35 h-35 object-contain"
+      className="w-50 h-50 object-contain"
 
     />
 
