@@ -1315,7 +1315,7 @@ export default function ModernPortfolio() {
 
       alt={edu.school}
 
-      className="w-50 h-50 object-contain"
+      className="w-20 h-20 object-contain"
 
     />
 
