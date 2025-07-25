@@ -190,7 +190,7 @@ export default function ModernPortfolio() {
       degree: "Bachelor of Science in Computer Engineering",
       period: "2024 - 2025",
       logo: "/bulsu.jpg",
-      gpa: "1.46",
+      projects: ["1.46"],
     },
     {
       school: "Sta. Lucia National High School",
@@ -1283,7 +1283,7 @@ export default function ModernPortfolio() {
                   <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">
                     My Education Journey
                   </h2>
-                  <p className="text-gray-400">Complete academic background and certifications</p>
+                  <p className="text-gray-400">Complete Academic Background</p>
                 </div>
                 <button
                   onClick={() => setShowAllEducation(false)}
@@ -1307,7 +1307,7 @@ export default function ModernPortfolio() {
   {/* Right Side: Logo */}
   <div className="w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
     <img
-      src={edu.logo || "/placeholder.svg?height=100&width=100&query=university logo"}
+      src={edu.logo || "/placeholder.svg?height=150&width=150&query=university logo"}
       alt={edu.school}
       className="w-20 h-20 object-contain"
     />
@@ -1332,13 +1332,14 @@ export default function ModernPortfolio() {
 
     {edu.certification && (
       <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
+        <h4 className="text-white font-semibold mb-3">GPA:</h4>
         <div className="flex flex-wrap gap-2">
           {edu.skills.map((skill, idx) => (
             <span
               key={idx}
               className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
             >
+              <Trophy className="w-3 h-3" />
               {skill}
             </span>
           ))}
@@ -1355,6 +1356,7 @@ export default function ModernPortfolio() {
               key={idx}
               className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
             >
+              <Trophy className="w-3 h-3" />
               {skill}
             </span>
           ))}
@@ -1371,6 +1373,7 @@ export default function ModernPortfolio() {
               key={idx}
               className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
             >
+              <Trophy className="w-3 h-3" />
               {project}
             </span>
           ))}
