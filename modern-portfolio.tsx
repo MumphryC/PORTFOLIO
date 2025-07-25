@@ -1350,7 +1350,7 @@ export default function ModernPortfolio() {
 
     {edu.skills && (
       <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:h4>
+        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
         <div className="flex flex-wrap gap-2">
           {edu.skills.map((skill, idx) => (
             <span
