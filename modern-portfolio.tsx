@@ -1303,80 +1303,83 @@ export default function ModernPortfolio() {
                     whileHover={{ scale: 1.02 }}
                     className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
                   >
-                    <div className="flex items-start gap-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
-                        <img
-                          src={edu.logo || "/placeholder.svg?height=100&width=100&query=university logo"}
-                          alt={edu.school}
-                          className="w-12 h-12 object-contain"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-                          <div>
-                            <h3 className="text-2xl font-bold text-white mb-2">{edu.degree}</h3>
-                            <p className="text-purple-400 font-semibold text-lg mb-1">{edu.school}</p>
-                            <p className="text-gray-400 font-medium">{edu.period}</p>
-                          </div>
-                          {edu.gpa && (
-                            <div className="mt-4 lg:mt-0 px-4 py-2 bg-green-500/20 rounded-full border border-green-400/30">
-                              <p className="text-green-400 font-bold">GPA: {edu.gpa}</p>
-                            </div>
-                          )}
-                        </div>
+                    <div className="flex flex-row-reverse items-start gap-6">
+  {/* Right Side: Logo */}
+  <div className="w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
+    <img
+      src={edu.logo || "/placeholder.svg?height=100&width=100&query=university logo"}
+      alt={edu.school}
+      className="w-20 h-20 object-contain"
+    />
+  </div>
 
-                        <p className="text-gray-300 leading-relaxed mb-6">{edu.description}</p>
+  {/* Left Side: All Education Info */}
+  <div className="flex-1">
+    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
+      <div>
+        <h3 className="text-2xl font-bold text-white mb-2">{edu.degree}</h3>
+        <p className="text-purple-400 font-semibold text-lg mb-1">{edu.school}</p>
+        <p className="text-gray-400 font-medium">{edu.period}</p>
+      </div>
+      {edu.gpa && (
+        <div className="mt-4 lg:mt-0 px-4 py-2 bg-green-500/20 rounded-full border border-green-400/30">
+          <p className="text-green-400 font-bold">GPA: {edu.gpa}</p>
+        </div>
+      )}
+    </div>
 
-                        {edu.certification && (
-                          <div className="mb-4">
-                            <h4 className="text-white font-semibold mb-2">Certification:</h4>
-                            <p className="text-purple-300">{edu.certification}</p>
-                          </div>
-                        )}
+    <p className="text-gray-300 leading-relaxed mb-6">{edu.description}</p>
 
-                        {edu.skills && (
-                          <div className="mb-4">
-                            <h4 className="text-white font-semibold mb-3">Skills Acquired:</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {edu.skills.map((skill, idx) => (
-                                <span
-                                  key={idx}
-                                  className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 text-sm rounded-full border border-purple-400/30"
-                                >
-                                  {skill}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+    {edu.certification && (
+      <div className="mb-4">
+        <h4 className="text-white font-semibold mb-2">Certification:</h4>
+        <p className="text-purple-300">{edu.certification}</p>
+      </div>
+    )}
 
-                        {edu.projects && (
-                          <div className="mb-4">
-                            <h4 className="text-white font-semibold mb-3">Key Projects:</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {edu.projects.map((project, idx) => (
-                                <span
-                                  key={idx}
-                                  className="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-400/30"
-                                >
-                                  {project}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+    {edu.skills && (
+      <div className="mb-4">
+        <h4 className="text-white font-semibold mb-3">Skills Acquired:</h4>
+        <div className="flex flex-wrap gap-2">
+          {edu.skills.map((skill, idx) => (
+            <span
+              key={idx}
+              className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 text-sm rounded-full border border-purple-400/30"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
 
-                        {edu.achievements && (
-                          <div>
-                            <h4 className="text-white font-semibold mb-3">Achievements:</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {edu.achievements.map((achievement, idx) => (
-                                <span
-                                  key={idx}
-                                  className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
-                                >
-                                  <Trophy className="w-3 h-3" />
-                                  {achievement}
+    {edu.projects && (
+      <div className="mb-4">
+        <h4 className="text-white font-semibold mb-3">Key Projects:</h4>
+        <div className="flex flex-wrap gap-2">
+          {edu.projects.map((project, idx) => (
+            <span
+              key={idx}
+              className="px-3 py-1 bg-blue-500/20 text-blue-300 text-sm rounded-full border border-blue-400/30"
+            >
+              {project}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {edu.achievements && (
+      <div>
+        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
+        <div className="flex flex-wrap gap-2">
+          {edu.achievements.map((achievement, idx) => (
+            <span
+              key={idx}
+              className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
+            >
+              <Trophy className="w-3 h-3" />
+              {achievement}
                                 </span>
                               ))}
                             </div>
