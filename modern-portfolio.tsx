@@ -1303,23 +1303,23 @@ export default function ModernPortfolio() {
                     whileHover={{ scale: 1.02 }}
                     className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
                   >
-                    <div className="flex gap-6">
-  {/* Left Side: Education Info */}
-  <div className="flex-1">
-    {/* your existing education info here */}
-  </div>
+                    <div className="flex flex-row-reverse items-start gap-6">
 
-  {/* Right Side: Logo (centered vertically) */}
-  <div className="flex items-center">
-    <div className="w-36 h-36 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
-      <img
-        src={edu.logo || "/placeholder.svg?height=150&width=150&query=university logo"}
-        alt={edu.school}
-        className="w-28 h-28 object-contain"
-      />
-    </div>
+  {/* Right Side: Logo */}
+
+  <div className="w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
+
+    <img
+
+      src={edu.logo || "/placeholder.svg?height=150&width=150&query=university logo"}
+
+      alt={edu.school}
+
+      className="w-28 h-28 object-contain"
+
+    />
+
   </div>
-</div>
 
 
 
