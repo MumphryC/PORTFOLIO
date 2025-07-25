@@ -309,15 +309,12 @@ export default function ModernPortfolio() {
   }
 
   const skills = [
-  { name: "Python" },
-  { name: "JavaScript" },
-  { name: "React" },
-  { name: "Flutter" },
-  { name: "Flask" },
-  { name: "Django" },
-  { name: "DevOps" },
-  { name: "AWS" },
-  { name: "Database Design" },
+    { name: "Python", level: 90, color: "from-blue-400 to-blue-600" },
+    { name: "JavaScript", level: 85, color: "from-yellow-400 to-orange-500" },
+    { name: "React/Flutter", level: 80, color: "from-cyan-400 to-blue-500" },
+    { name: "Flask/Django", level: 85, color: "from-green-400 to-emerald-600" },
+    { name: "DevOps/AWS", level: 75, color: "from-purple-400 to-pink-500" },
+    { name: "Database Design", level: 80, color: "from-indigo-400 to-purple-600" },
   ]
 
   const achievements = [
@@ -931,39 +928,47 @@ export default function ModernPortfolio() {
           </div>
 
           {/* Technical Skills */}
-<motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-    Technical Skills
-  </h3>
-
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {skills.map((skill, index) => (
-      <motion.div
-        key={skill.name}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.1 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.05 }}
-        className="relative group"
-      >
-        <div className="bg-gradient-to-br from-[#1a1a1a] to-[#111] rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 shadow-md hover:shadow-xl">
-          <h4 className="text-xl font-semibold text-white text-center group-hover:scale-105 transition-transform duration-300">
-            {skill.name}
-          </h4>
-
-          {/* Optional glow or visual effect on hover */}
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-20 transition duration-500 blur-2xl pointer-events-none rounded-2xl" />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Technical Skills
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative group"
+                >
+                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
+                    <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-lg font-semibold text-white">{skill.name}</h4>
+                      <span className="text-sm text-gray-400">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+                      <motion.div
+                        className={h-full bg-gradient-to-r ${skill.color} rounded-full}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: ${skill.level}% }}
+                        transition={{ duration: 1.5, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
+      </motion.section>
 
 
       {/* Projects Section */}
