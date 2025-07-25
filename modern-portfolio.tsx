@@ -812,12 +812,18 @@ export default function ModernPortfolio() {
                     whileHover={{ scale: 1.02 }}
                     className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center">
+                    <div className="flex items-start justify-between gap-4">
+                      {/* Left side: Text content (you can insert more content here if needed) */}
+                      <div className="flex-1">
+                        {/* Your text content here, like school name, degree, etc. */}
+                        <h3 className="text-lg font-semibold">{edu.school}</h3>
+                        {/* Add more details if needed */}
+                    </div>
+                      <div className="w-24 h-24 bg-white/10 rounded-xl flex items-center justify-center">
                         <img
                           src={edu.logo || "/placeholder.svg?height=40&width=40&query=university logo"}
                           alt={edu.school}
-                          className="w-10 h-10 object-contain"
+                          className="w-16 h-16 object-contain"
                         />
                       </div>
                       <div className="flex-1">
