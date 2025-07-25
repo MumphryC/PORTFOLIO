@@ -1307,11 +1307,11 @@ export default function ModernPortfolio() {
 
   {/* Right Side: Logo */}
 
-  <div className="w-35 h-35 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
+  <div className="w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30 shrink-0">
 
     <img
 
-      src={edu.logo || "/placeholder.svg?height=65&width=65&query=university logo"}
+      src={edu.logo || "/placeholder.svg?height=50&width=50&query=university logo"}
 
       alt={edu.school}
 
