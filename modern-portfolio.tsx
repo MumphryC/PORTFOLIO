@@ -191,7 +191,7 @@ export default function ModernPortfolio() {
       period: "September 2024 - July 2025",
       description:
         "Specialized in Software Engineering and Web Development. Graduated Magna Cum Laude with a focus on full-stack development, algorithms, and database systems.",
-      logo: "/university-logo.png",
+      logo: "/bulsu_logo.png",
       gpa: "3.8/4.0",
       achievements: ["Dean's List", "Computer Science Excellence Award"],
     },
