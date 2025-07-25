@@ -286,6 +286,7 @@ export default function ModernPortfolio() {
       icon: <Award className="w-6 h-6" />,
       color: "from-indigo-400 to-purple-500",
       image: "/deans-list.png",
+      gpa: "3.8/4.0",
     },
     {
       title: "JavaScript Algorithms Certification",
