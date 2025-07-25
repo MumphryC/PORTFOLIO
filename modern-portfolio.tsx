@@ -1333,7 +1333,10 @@ export default function ModernPortfolio() {
 
     {edu.certification && (
       <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">GWA:</h4>
+        <h4 className="text-white font-semibold mb-3">
+          <Role className="w-5 h-5 text-yellow-400" />
+                              Role
+                            </h4>
         <div className="flex flex-wrap gap-2">
           {edu.skills.map((skill, idx) => (
             <span
@@ -1350,7 +1353,10 @@ export default function ModernPortfolio() {
 
     {edu.skills && (
       <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
+        <h4 className="text-white font-semibold mb-3">
+                              <Role className="w-5 h-5 text-yellow-400" />
+                              Role
+                            </h4>
         <div className="flex flex-wrap gap-2">
           {edu.skills.map((skill, idx) => (
             <span
@@ -1367,7 +1373,10 @@ export default function ModernPortfolio() {
 
     {edu.projects && (
       <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
+        <h4 className="text-white font-semibold mb-3">
+          <Role className="w-5 h-5 text-yellow-400" />
+                              Role
+                            </h4>
         <div className="flex flex-wrap gap-2">
           {edu.projects.map((project, idx) => (
             <span
@@ -1384,7 +1393,10 @@ export default function ModernPortfolio() {
 
     {edu.achievements && (
       <div>
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
+        <h4 className="text-white font-semibold mb-3">
+          <Role className="w-5 h-5 text-yellow-400" />
+                              Role
+                            </h4>
         <div className="flex flex-wrap gap-2">
           {edu.achievements.map((achievement, idx) => (
             <span
@@ -1494,8 +1506,8 @@ export default function ModernPortfolio() {
                         {exp.achievements && (
                           <div>
                             <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                              <Award className="w-5 h-5 text-yellow-400" />
-                              Key Achievements
+                              <Role className="w-5 h-5 text-yellow-400" />
+                              Role
                             </h4>
                             <div className="flex flex-wrap gap-2">
                               {exp.achievements.map((achievement, idx) => (
