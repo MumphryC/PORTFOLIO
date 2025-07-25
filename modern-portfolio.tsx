@@ -220,14 +220,14 @@ export default function ModernPortfolio() {
       company: "Alied Care Experts (ACE) Malolos Doctors",
       position: "Database Administrator - IT Support",
       period: "June 2024 - July 2024",
-      logo: "/ace.jpg",
+      logo: "/ace.png",
       achievements: ["Intern"],
     },
     {
       company: "Alied Care Experts (ACE) Malolos Doctors",
       position: "Marketing Assistant - Graphic Designer",
       period: "August 2024 - October 2024",
-      logo: "/ace.jpg",
+      logo: "/ace.png",
       achievements: ["Part-time"],
     },
   ]
