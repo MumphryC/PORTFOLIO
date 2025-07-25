@@ -955,9 +955,9 @@ export default function ModernPortfolio() {
                     </div>
                     <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
                       <motion.div
-                        className={h-full bg-gradient-to-r ${skill.color} rounded-full}
+                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
                         initial={{ width: 0 }}
-                        whileInView={{ width: ${skill.level}% }}
+                        whileInView={{ width: `${skill.level}%` }}
                         transition={{ duration: 1.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                       />
@@ -969,7 +969,6 @@ export default function ModernPortfolio() {
           </motion.div>
         </div>
       </motion.section>
-
 
       {/* Projects Section */}
       <section ref={projectsRef} id="projects" className="relative py-20 px-6">
