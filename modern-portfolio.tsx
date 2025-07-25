@@ -1307,7 +1307,7 @@ export default function ModernPortfolio() {
 
   {/* Right Side: Logo */}
 
-  <div className="w-33 h-33 bg-white/10 rounded-xl flex items-center justify-center">
+  <div className="w-30 h-30 bg-white/10 rounded-xl flex items-center justify-center">
 
     <img
       src={edu.logo || "/placeholder.svg?height=40&width=40&query=university logo"}
