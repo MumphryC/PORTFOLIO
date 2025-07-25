@@ -1311,7 +1311,7 @@ export default function ModernPortfolio() {
 
     <img
 
-      src={edu.logo || "/placeholder.svg?height=250&width=250&query=university logo"}
+      src={edu.logo || "/placeholder.svg?height=100&width=100&query=university logo"}
 
       alt={edu.school}
 
