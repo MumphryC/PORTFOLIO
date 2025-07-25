@@ -1303,15 +1303,12 @@ export default function ModernPortfolio() {
                     whileHover={{ scale: 1.02 }}
                     className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
                   >
-                    <div className="flex items-start justify-between gap-6">
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold">{edu.school}</h3>
-                        </div>
-                      <div className="w-28 h-28 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
+                    <div className="flex items-start gap-6">
+                      <div className="w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
                         <img
                           src={edu.logo || "/placeholder.svg?height=50&width=50&query=university logo"}
                           alt={edu.school}
-                          className="w-20 h-20 object-contain"
+                          className="w-30 h-30 object-contain"
                         />
                       </div>
                       <div className="flex-1">
