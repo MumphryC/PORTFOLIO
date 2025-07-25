@@ -1311,11 +1311,11 @@ export default function ModernPortfolio() {
 
     <img
 
-      src={edu.logo || "/placeholder.svg?height=250&width=250&query=university logo"}
+      src={edu.logo || "/placeholder.svg?height=50&width=50&query=university logo"}
 
       alt={edu.school}
 
-      className="w-30 h-30 object-contain"
+      className="w-25 h-25 object-contain"
 
     />
 
