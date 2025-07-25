@@ -1506,7 +1506,7 @@ export default function ModernPortfolio() {
                         {exp.achievements && (
                           <div>
                             <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                              <Role className="w-5 h-5 text-yellow-400" />
+                              <Award className="w-5 h-5 text-yellow-400" />
                               Role
                             </h4>
                             <div className="flex flex-wrap gap-2">
