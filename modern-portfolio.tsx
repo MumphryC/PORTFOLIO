@@ -1306,9 +1306,9 @@ export default function ModernPortfolio() {
                     <div className="flex items-start gap-6">
                       <div className="w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
                         <img
-                          src={edu.logo || "/placeholder.svg?height=50&width=50&query=university logo"}
+                          src={edu.logo || "/placeholder.svg?height=100&width=100&query=university logo"}
                           alt={edu.school}
-                          className="w-30 h-30 object-contain"
+                          className="w-12 h-12 object-contain"
                         />
                       </div>
                       <div className="flex-1">
