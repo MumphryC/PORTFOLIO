@@ -29,12 +29,6 @@ import {
   Star,
   Clock,
   Calendar,
-  Code,
-  Smartphone,
-  Database,
-  Sparkles,
-  GitBranch,
-  Brain,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
