@@ -929,44 +929,59 @@ export default function ModernPortfolio() {
 
           {/* Technical Skills */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Technical Skills
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                  className="relative group"
-                >
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-lg font-semibold text-white">{skill.name}</h4>
-                      <span className="text-sm text-gray-400">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
-                      <motion.div
-                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1.5, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    Technical Skills
+  </h3>
+
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {[
+      {
+        title: "Programming Languages",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["Python", "JavaScript", "C++", "Java"],
+      },
+      {
+        title: "Frameworks & Libraries",
+        color: "from-green-400 to-emerald-500",
+        skills: ["React", "Flutter", "Flask", "Django"],
+      },
+      {
+        title: "Tools & Platforms",
+        color: "from-yellow-400 to-orange-500",
+        skills: ["AWS", "Docker", "Git", "Firebase"],
+      },
+    ].map((category, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.03, y: -5 }}
+        className={`bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
+      >
+        <h4
+          className={`text-xl font-semibold text-white mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+        >
+          {category.title}
+        </h4>
+        <div className="flex flex-wrap gap-3">
+          {category.skills.map((skill, idx) => (
+            <motion.span
+              key={idx}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+
         </div>
       </motion.section>
 
