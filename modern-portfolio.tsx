@@ -345,7 +345,53 @@ export default function ModernPortfolio() {
     color: "from-indigo-500 to-sky-500",
     items: ["OOP", "Data Structures", "Agile", "CI/CD"],
   },
-  ]
+]
+
+export default function TechnicalSkills() {
+  return (
+    <motion.section
+      id="skills"
+      className="py-16 px-4 max-w-6xl mx-auto"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-cyan-400 to-blue-600 text-transparent bg-clip-text">
+        ⚙️ Technical Skills
+      </h2>
+
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {skills.map((skill, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.03, rotate: "-0.5deg" }}
+            className={`p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl shadow-lg hover:shadow-xl transition-all`}
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                className={`p-3 rounded-full bg-gradient-to-tr ${skill.color} shadow-md`}
+              >
+                {skill.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-white">{skill.title}</h3>
+            </div>
+            <ul className="flex flex-wrap gap-3 mt-2">
+              {skill.items.map((item, i) => (
+                <span
+                  key={i}
+                  className="text-sm px-4 py-1.5 bg-white/10 border border-white/20 rounded-full text-white font-medium hover:bg-white/20 transition"
+                >
+                  {item}
+                </span>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </div>
+    </motion.section>
+  )
+}
 
   const achievements = [
     {
