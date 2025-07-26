@@ -958,9 +958,7 @@ export default function ModernPortfolio() {
           </div>
 
           {/* Technical Skills */}
-          <motion.section
-      id="skills"
-      className="py-16 px-4 max-w-6xl mx-auto"
+          <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
