@@ -928,80 +928,61 @@ export default function ModernPortfolio() {
           </div>
 
           {/* Technical Skills */}
-          <motion.section
-  id="skills"
-  className="py-20 px-6 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
+          <motion.div
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
+  transition={{ duration: 0.8 }}
   viewport={{ once: true }}
 >
-  <div className="max-w-6xl mx-auto">
-    <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
-      Technical Skill Matrix
-    </h2>
+  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    Technical Skills
+  </h3>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {[
-        {
-          title: "Languages",
-          items: ["C++", "Python", "Java"],
-          color: "from-blue-400 to-purple-500",
-          icon: <Code className="w-6 h-6 text-blue-300" />,
-        },
-        {
-          title: "Web & UI Frameworks",
-          items: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
-          color: "from-yellow-400 to-pink-500",
-          icon: <Layout className="w-6 h-6 text-yellow-300" />,
-        },
-        {
-          title: "Tools & Platforms",
-          items: ["Git", "GitHub"],
-          color: "from-indigo-400 to-purple-600",
-          icon: <Terminal className="w-6 h-6 text-indigo-300" />,
-        },
-        {
-          title: "Databases",
-          items: ["MySQL"],
-          color: "from-green-400 to-emerald-500",
-          icon: <Database className="w-6 h-6 text-green-300" />,
-        },
-        {
-          title: "Core Concepts",
-          items: ["OOP", "Data Structures", "Agile", "CI/CD"],
-          color: "from-rose-400 to-pink-500",
-          icon: <Atom className="w-6 h-6 text-rose-300" />,
-        },
-      ].map((cat, index) => (
-        <motion.div
-          key={cat.title}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: index * 0.1 }}
-          whileHover={{ scale: 1.05 }}
-          className={`rounded-2xl p-6 border border-white/10 backdrop-blur-lg bg-gradient-to-br ${cat.color} bg-opacity-10 shadow-lg hover:shadow-2xl transition-all duration-300`}
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {[
+      {
+        title: "Programming Languages",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["Python", "JavaScript", "C++", "Java"],
+      },
+      {
+        title: "Frameworks & Libraries",
+        color: "from-green-400 to-emerald-500",
+        skills: ["React", "Flutter", "Flask", "Django"],
+      },
+      {
+        title: "Tools & Platforms",
+        color: "from-yellow-400 to-orange-500",
+        skills: ["AWS", "Docker", "Git", "Firebase"],
+      },
+    ].map((category, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.03, y: -5 }}
+        className={`bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
+      >
+        <h4
+          className={`text-xl font-semibold text-white mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
         >
-          <div className="flex items-center gap-3 mb-4">
-            {cat.icon}
-            <h3 className="text-xl font-bold text-white">{cat.title}</h3>
-          </div>
-          <div className="flex flex-wrap gap-2 mt-3">
-            {cat.items.map((item, i) => (
-              <span
-                key={i}
-                className="px-3 py-1 bg-white/10 border border-white/20 text-white text-sm rounded-full hover:bg-white/20 transition-all duration-200"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      ))}
-    </div>
+          {category.title}
+        </h4>
+        <div className="flex flex-wrap gap-3">
+          {category.skills.map((skill, idx) => (
+            <motion.span
+              key={idx}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </motion.div>
+    ))}
   </div>
-</motion.section>
-
+</motion.div>
+</div>
+      </motion.section>
 
       {/* Projects Section */}
       <section ref={projectsRef} id="projects" className="relative py-20 px-6">
