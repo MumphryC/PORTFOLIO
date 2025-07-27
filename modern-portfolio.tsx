@@ -943,17 +943,27 @@ export default function ModernPortfolio() {
       {
         title: "Programming Languages",
         color: "from-blue-500 via-purple-500 to-pink-500",
-        skills: ["Python", "JavaScript", "C++", "Java"],
+        skills: ["Python", "C++", "Java"],
       },
       {
-        title: "Frameworks & Libraries",
+        title: "Web Frameworks",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
+      },
+      {
+        title: "Tools and Platforms",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["GitHub", "Git"],
+      },
+      {
+        title: "Databases",
         color: "from-green-400 to-emerald-500",
-        skills: ["React", "Flutter", "Flask", "Django"],
+        skills: ["MySQL"],
       },
       {
-        title: "Tools & Platforms",
+        title: "Core Concepts",
         color: "from-yellow-400 to-orange-500",
-        skills: ["AWS", "Docker", "Git", "Firebase"],
+        skills: ["Object Oriented Programming", "Data Structure", "Agile Methodology", "CI/CD"],
       },
     ].map((category, index) => (
       <motion.div
