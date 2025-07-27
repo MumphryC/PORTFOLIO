@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { FaCode, FaTools, FaDatabase, FaGlobe, FaCogs } from 'react-icons/fa'
 import {
   Github,
   Linkedin,
@@ -316,39 +315,6 @@ export default function ModernPortfolio() {
     { name: "Flask/Django", level: 85, color: "from-green-400 to-emerald-600" },
     { name: "DevOps/AWS", level: 75, color: "from-purple-400 to-pink-500" },
     { name: "Database Design", level: 80, color: "from-indigo-400 to-purple-600" },
-]
-
-  const categories = [
-  {
-    title: 'Programming Languages',
-    icon: <FaCode className="text-pink-400 text-2xl" />,
-    color: 'from-blue-500 via-purple-500 to-pink-500',
-    skills: ['Python', 'C++', 'Java'],
-  },
-  {
-    title: 'Tools and Platforms',
-    icon: <FaTools className="text-yellow-400 text-2xl" />,
-    color: 'from-fuchsia-500 via-purple-500 to-indigo-500',
-    skills: ['GitHub', 'Git'],
-  },
-  {
-    title: 'Databases',
-    icon: <FaDatabase className="text-green-400 text-2xl" />,
-    color: 'from-green-400 to-emerald-500',
-    skills: ['MySQL'],
-  },
-  {
-    title: 'Web Frameworks',
-    icon: <FaGlobe className="text-blue-400 text-2xl" />,
-    color: 'from-sky-400 via-indigo-400 to-violet-500',
-    skills: ['HTML', 'CSS', 'JavaScript', 'FlutterFlow'],
-  },
-  {
-    title: 'Core Concepts',
-    icon: <FaCogs className="text-orange-400 text-2xl" />,
-    color: 'from-yellow-400 to-orange-500',
-    skills: ['Object Oriented Programming', 'Data Structure', 'Agile Methodology', 'CI/CD'],
-  },
 ]
 
   const achievements = [
@@ -962,53 +928,71 @@ export default function ModernPortfolio() {
           </div>
 
           {/* Technical Skills */}
-          <motion.section
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="relative py-20"
-    >
-      {/* Floating Background Gradient */}
-      <div className="absolute -top-10 -left-10 w-72 h-72 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full opacity-30 blur-3xl z-0 animate-pulse" />
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-gradient-to-br from-pink-500 to-yellow-500 rounded-full opacity-20 blur-3xl z-0 animate-pulse" />
+          <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: true }}
+>
+  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    Technical Skills
+  </h3>
 
-      <div className="relative z-10">
-        <h3 className="text-4xl font-extrabold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-          Technical Skills
-        </h3>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
-          {categories.map((category, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.03, y: -5 }}
-              className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {[
+      {
+        title: "Programming Languages",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["Python", "C++", "Java"],
+      },
+      {
+        title: "Tools and Platforms",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["GitHub", "Git"],
+      },
+      {
+        title: "Databases",
+        color: "from-green-400 to-emerald-500",
+        skills: ["MySQL"],
+      },
+      {
+        title: "Web Frameworks",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
+      },
+      {
+        title: "Core Concepts",
+        color: "from-yellow-400 to-orange-500",
+        skills: ["Object Oriented Programming", "Data Structure", "Agile Methodology", "CI/CD"],
+      },
+    ].map((category, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.03, y: -5 }}
+        className={`bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
+      >
+        <h4
+          className={`text-xl font-semibold text-white mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+        >
+          {category.title}
+        </h4>
+        <div className="flex flex-wrap gap-3">
+          {category.skills.map((skill, idx) => (
+            <motion.span
+              key={idx}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
             >
-              <div className="flex items-center gap-3 mb-4">
-                {category.icon}
-                <h4
-                  className={`text-xl font-semibold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
-                >
-                  {category.title}
-                </h4>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, idx) => (
-                  <motion.span
-                    key={idx}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+              {skill}
+            </motion.span>
           ))}
         </div>
-      </div>
-    </motion.section>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+</div>
+      </motion.section>
 
       {/* Projects Section */}
       <section ref={projectsRef} id="projects" className="relative py-20 px-6">
