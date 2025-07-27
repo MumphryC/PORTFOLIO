@@ -934,7 +934,7 @@ export default function ModernPortfolio() {
   transition={{ duration: 0.8 }}
   viewport={{ once: true }}
 >
-  <h3 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
     Technical Skills
   </h3>
 
@@ -944,42 +944,36 @@ export default function ModernPortfolio() {
         title: "Programming Languages",
         color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["Python", "C++", "Java"],
-        icon: "🖥️", // Add appropriate icons
       },
       {
         title: "Tools and Platforms",
         color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["GitHub", "Git"],
-        icon: "🛠️",
       },
       {
         title: "Databases",
         color: "from-green-400 to-emerald-500",
         skills: ["MySQL"],
-        icon: "📊",
       },
       {
         title: "Web Frameworks",
         color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
-        icon: "🌐",
       },
       {
         title: "Core Concepts",
         color: "from-yellow-400 to-orange-500",
         skills: ["Object Oriented Programming", "Data Structure", "Agile Methodology", "CI/CD"],
-        icon: "📚",
       },
     ].map((category, index) => (
       <motion.div
         key={index}
-        whileHover={{ scale: 1.05, y: -5 }}
-        className={`bg-white/10 border border-white/20 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
+        whileHover={{ scale: 1.03, y: -5 }}
+        className={`bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
       >
         <h4
-          className={`text-xl font-semibold text-white mb-4 flex items-center bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+          className={`text-xl font-semibold text-white mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
         >
-          <span className="mr-2 text-2xl">{category.icon}</span>
           {category.title}
         </h4>
         <div className="flex flex-wrap gap-3">
@@ -987,7 +981,7 @@ export default function ModernPortfolio() {
             <motion.span
               key={idx}
               whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 text-sm text-white font-medium shadow-sm hover:bg-white/30 transition"
+              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
             >
               {skill}
             </motion.span>
@@ -997,6 +991,8 @@ export default function ModernPortfolio() {
     ))}
   </div>
 </motion.div>
+</div>
+      </motion.section>
 
 
 
