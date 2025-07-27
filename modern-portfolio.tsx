@@ -946,11 +946,6 @@ export default function ModernPortfolio() {
         skills: ["Python", "C++", "Java"],
       },
       {
-        title: "Web Frameworks",
-        color: "from-blue-500 via-purple-500 to-pink-500",
-        skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
-      },
-      {
         title: "Tools and Platforms",
         color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["GitHub", "Git"],
@@ -959,6 +954,11 @@ export default function ModernPortfolio() {
         title: "Databases",
         color: "from-green-400 to-emerald-500",
         skills: ["MySQL"],
+      },
+      {
+        title: "Web Frameworks",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
       },
       {
         title: "Core Concepts",
