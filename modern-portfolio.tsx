@@ -38,6 +38,8 @@ export default function ModernPortfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  const [hoveredSkill, setHoveredSkill] = useState(null)
+
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], [0, -50])
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
@@ -325,6 +327,7 @@ export default function ModernPortfolio() {
   ]
 
   // ✏️ EDIT YOUR SKILL CATEGORIES HERE - Change title, colors, skills array, and icons
+  // ✏️ EDIT YOUR SKILL CATEGORIES HERE - Change title, colors, skills array, and icons
   const skillCategories = [
     {
       title: "Programming Languages", // 📝 CHANGE CATEGORY NAME
@@ -370,6 +373,16 @@ export default function ModernPortfolio() {
     //   skills: ["SKILL1", "SKILL2", "SKILL3"],
     //   icon: "🔧",
     // },
+  ]
+
+  // 👇 ADD THE currentlyLearning ARRAY RIGHT HERE, AFTER skillCategories
+  const currentlyLearning = [
+    "Next.js",
+    "TypeScript", 
+    "GraphQL",
+    "Kubernetes",
+    "Machine Learning",
+    "Blockchain Development"
   ]
 
   const achievements = [
@@ -982,120 +995,121 @@ export default function ModernPortfolio() {
             </motion.div>
           </div>
 
+          {/* Technical Skills Section */}
           <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-3xl"
-      >
-        <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
-          🚀 Technical Skills
-        </h3>
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  viewport={{ once: true }}
+  className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-3xl"
+>
+  <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
+    🚀 Technical Skills
+  </h3>
 
-        {/* Skills with Progress Bars */}
-        <div className="mb-20">
-          <h4 className="text-2xl font-bold mb-8 text-center text-white">Skill Proficiency</h4>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {skillsWithLevels.map((skill) => (
-              <div
-                key={skill.name}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-105"
-                onMouseEnter={() => setHoveredSkill(skill.name)}
-                onMouseLeave={() => setHoveredSkill(null)}
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-white font-medium">{skill.name}</span>
-                  <span className="text-gray-400 text-sm">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div
-                    className={`bg-gradient-to-r ${skill.color} h-2 rounded-full transition-all duration-1000 ease-out ${
-                      hoveredSkill === skill.name ? "animate-pulse" : ""
-                    }`}
-                    style={{
-                      width: `${skill.level}%`,
-                      transition: "width 1s ease-out",
-                    }}
-                  />
-                </div>
-                <div className="text-xs text-gray-500 mt-1">{skill.category}</div>
-              </div>
-            ))}
+  {/* Skills with Progress Bars */}
+  <div className="mb-20">
+    <h4 className="text-2xl font-bold mb-8 text-center text-white">Skill Proficiency</h4>
+    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {skillsWithLevels.map((skill) => (
+        <div
+          key={skill.name}
+          className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-105"
+          onMouseEnter={() => setHoveredSkill(skill.name)}
+          onMouseLeave={() => setHoveredSkill(null)}
+        >
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-white font-medium">{skill.name}</span>
+            <span className="text-gray-400 text-sm">{skill.level}%</span>
           </div>
+          <div className="w-full bg-gray-700 rounded-full h-2">
+            <div
+              className={`bg-gradient-to-r ${skill.color} h-2 rounded-full transition-all duration-1000 ease-out ${
+                hoveredSkill === skill.name ? "animate-pulse" : ""
+              }`}
+              style={{
+                width: `${skill.level}%`,
+                transition: "width 1s ease-out",
+              }}
+            />
+          </div>
+          <div className="text-xs text-gray-500 mt-1">{skill.category}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Skill Categories */}
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    {skillCategories.map((category, index) => (
+      <motion.div
+        key={index}
+        whileHover={{ scale: 1.05, y: -4 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+      >
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-2xl">{category.icon}</span>
+          <h4
+            className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
+          >
+            {category.title}
+          </h4>
         </div>
 
-        {/* Skill Categories */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -4 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+        <div className="flex flex-wrap gap-3 mt-4">
+          {category.skills.map((skill, idx) => (
+            <motion.span
+              key={idx}
+              whileHover={{ scale: 1.1, y: -2 }}
+              className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{category.icon}</span>
-                <h4
-                  className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
-                >
-                  {category.title}
-                </h4>
-              </div>
-
-              <div className="flex flex-wrap gap-3 mt-4">
-                {category.skills.map((skill, idx) => (
-                  <motion.span
-                    key={idx}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
+              {skill}
+            </motion.span>
           ))}
         </div>
+      </motion.div>
+    ))}
+  </div>
 
-        {/* Stats Summary */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-3xl font-bold text-cyan-400 mb-2">5+</div>
-            <div className="text-gray-300 text-sm">Programming Languages</div>
-          </div>
-          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-3xl font-bold text-green-400 mb-2">10+</div>
-            <div className="text-gray-300 text-sm">Technologies</div>
-          </div>
-          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
-            <div className="text-gray-300 text-sm">Frameworks</div>
-          </div>
-          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-            <div className="text-3xl font-bold text-orange-400 mb-2">5+</div>
-            <div className="text-gray-300 text-sm">Tools & Platforms</div>
-          </div>
-        </div>
+  {/* Stats Summary */}
+  <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+      <div className="text-3xl font-bold text-cyan-400 mb-2">5+</div>
+      <div className="text-gray-300 text-sm">Programming Languages</div>
+    </div>
+    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+      <div className="text-3xl font-bold text-green-400 mb-2">10+</div>
+      <div className="text-gray-300 text-sm">Technologies</div>
+    </div>
+    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+      <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+      <div className="text-gray-300 text-sm">Frameworks</div>
+    </div>
+    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+      <div className="text-3xl font-bold text-orange-400 mb-2">5+</div>
+      <div className="text-gray-300 text-sm">Tools & Platforms</div>
+    </div>
+  </div>
 
-        {/* Currently Learning */}
-        <div className="mt-20 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-          <h4 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
-            🌱 Currently Learning
-          </h4>
-          <div className="flex flex-wrap justify-center gap-4">
-            {currentlyLearning.map((tech, idx) => (
-              <div
-                key={idx}
-                className="px-6 py-3 bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur-sm rounded-full border border-green-400/30 text-green-300 font-medium hover:scale-110 transition-transform duration-200 cursor-pointer"
-              >
-                <span className="mr-2">📚</span>
-                {tech}
-              </div>
-            ))}
-          </div>
+  {/* Currently Learning */}
+  <div className="mt-20 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+    <h4 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
+      🌱 Currently Learning
+    </h4>
+    <div className="flex flex-wrap justify-center gap-4">
+      {currentlyLearning.map((tech, idx) => (
+        <div
+          key={idx}
+          className="px-6 py-3 bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur-sm rounded-full border border-green-400/30 text-green-300 font-medium hover:scale-110 transition-transform duration-200 cursor-pointer"
+        >
+          <span className="mr-2">📚</span>
+          {tech}
         </div>
-      </motion.section>
+      ))}
+    </div>
+  </div>
+</motion.section>
 
 
       {/* Projects Section */}
