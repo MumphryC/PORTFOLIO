@@ -927,72 +927,61 @@ export default function ModernPortfolio() {
             </motion.div>
           </div>
 
-          {/* Technical Skills Section */}
-<motion.section
+          {/* Technical Skills */}
+          <motion.div
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
+  transition={{ duration: 0.8 }}
   viewport={{ once: true }}
-  className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a]"
 >
-  <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
-    🚀 Technical Skills
+  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    Technical Skills
   </h3>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {[
       {
         title: "Programming Languages",
-        color: "from-indigo-500 to-pink-500",
+        color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["Python", "C++", "Java"],
-        icon: "💻",
       },
       {
-        title: "Tools & Platforms",
-        color: "from-emerald-400 to-teal-500",
-        skills: ["Git", "GitHub"],
-        icon: "🛠️",
+        title: "Tools and Platforms",
+        color: "from-blue-500 via-purple-500 to-pink-500",
+        skills: ["GitHub", "Git"],
       },
       {
         title: "Databases",
-        color: "from-green-400 to-emerald-600",
+        color: "from-green-400 to-emerald-500",
         skills: ["MySQL"],
-        icon: "🗄️",
       },
       {
         title: "Web Frameworks",
-        color: "from-yellow-400 via-orange-500 to-pink-500",
+        color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
-        icon: "🌐",
       },
       {
         title: "Core Concepts",
-        color: "from-cyan-400 to-sky-500",
-        skills: ["OOP", "Data Structures", "Agile", "CI/CD"],
-        icon: "🧠",
+        color: "from-yellow-400 to-orange-500",
+        skills: ["Object Oriented Programming", "Data Structure", "Agile Methodology", "CI/CD"],
       },
     ].map((category, index) => (
       <motion.div
         key={index}
-        whileHover={{ scale: 1.05, y: -4 }}
-        transition={{ duration: 0.3 }}
-        className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+        whileHover={{ scale: 1.03, y: -5 }}
+        className={`bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
       >
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-2xl">{category.icon}</span>
-          <h4
-            className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
-          >
-            {category.title}
-          </h4>
-        </div>
-
-        <div className="flex flex-wrap gap-3 mt-4">
+        <h4
+          className={`text-xl font-semibold text-white mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+        >
+          {category.title}
+        </h4>
+        <div className="flex flex-wrap gap-3">
           {category.skills.map((skill, idx) => (
             <motion.span
               key={idx}
               whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
+              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
             >
               {skill}
             </motion.span>
@@ -1001,7 +990,9 @@ export default function ModernPortfolio() {
       </motion.div>
     ))}
   </div>
-</motion.section>
+</motion.div>
+</div>
+      </motion.section>
 
       {/* Projects Section */}
       <section ref={projectsRef} id="projects" className="relative py-20 px-6">
