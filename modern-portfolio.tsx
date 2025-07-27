@@ -308,14 +308,69 @@ export default function ModernPortfolio() {
     2: ["/project-3-1.png", "/project-3-2.png", "/project-3-3.png"],
   }
 
-  const skills = [
-    { name: "Python", level: 90, color: "from-blue-400 to-blue-600" },
-    { name: "JavaScript", level: 85, color: "from-yellow-400 to-orange-500" },
-    { name: "React/Flutter", level: 80, color: "from-cyan-400 to-blue-500" },
-    { name: "Flask/Django", level: 85, color: "from-green-400 to-emerald-600" },
-    { name: "DevOps/AWS", level: 75, color: "from-purple-400 to-pink-500" },
-    { name: "Database Design", level: 80, color: "from-indigo-400 to-purple-600" },
-]
+  const skillsWithLevels = [
+    { name: "Python", level: 90, color: "from-blue-400 to-blue-600", category: "Programming" },
+    { name: "JavaScript", level: 85, color: "from-yellow-400 to-orange-500", category: "Programming" },
+    { name: "C++", level: 80, color: "from-green-400 to-green-600", category: "Programming" },
+    { name: "Java", level: 75, color: "from-red-400 to-red-600", category: "Programming" },
+    { name: "HTML/CSS", level: 85, color: "from-pink-400 to-rose-500", category: "Web" },
+    { name: "React", level: 80, color: "from-cyan-400 to-blue-500", category: "Web" },
+    { name: "Flutter", level: 75, color: "from-purple-400 to-purple-600", category: "Mobile" },
+    { name: "MySQL", level: 80, color: "from-indigo-400 to-purple-600", category: "Database" },
+    { name: "Git", level: 85, color: "from-orange-400 to-red-500", category: "Tools" },
+    { name: "AWS", level: 70, color: "from-emerald-400 to-teal-500", category: "Cloud" },
+    
+    // 📝 ADD MORE SKILLS HERE:
+    // { name: "YOUR_SKILL", level: 80, color: "from-COLOR1 to-COLOR2", category: "CATEGORY" },
+  ]
+
+  // ✏️ EDIT YOUR SKILL CATEGORIES HERE - Change title, colors, skills array, and icons
+  const skillCategories = [
+    {
+      title: "Programming Languages", // 📝 CHANGE CATEGORY NAME
+      color: "from-indigo-500 to-pink-500", // 🎨 CHANGE GRADIENT COLORS
+      skills: ["Python", "C++", "Java", "JavaScript"], // 📝 REPLACE WITH YOUR SKILLS
+      icon: "💻", // 📝 CHANGE EMOJI ICON
+    },
+    {
+      title: "Web Technologies",
+      color: "from-yellow-400 via-orange-500 to-pink-500",
+      skills: ["HTML", "CSS", "JavaScript", "React"],
+      icon: "🌐",
+    },
+    {
+      title: "Mobile Development",
+      color: "from-purple-400 to-pink-500",
+      skills: ["Flutter", "FlutterFlow", "Dart"],
+      icon: "📱",
+    },
+    {
+      title: "Databases",
+      color: "from-green-400 to-emerald-600",
+      skills: ["MySQL", "SQLite"],
+      icon: "🗄️",
+    },
+    {
+      title: "Tools & Platforms",
+      color: "from-emerald-400 to-teal-500",
+      skills: ["Git", "GitHub", "Docker"],
+      icon: "🛠️",
+    },
+    {
+      title: "Core Concepts",
+      color: "from-cyan-400 to-sky-500",
+      skills: ["OOP", "Data Structures", "Algorithms", "Agile"],
+      icon: "🧠",
+    },
+    
+    // 📝 ADD MORE CATEGORIES HERE:
+    // {
+    //   title: "YOUR_CATEGORY",
+    //   color: "from-COLOR1 to-COLOR2",
+    //   skills: ["SKILL1", "SKILL2", "SKILL3"],
+    //   icon: "🔧",
+    // },
+  ]
 
   const achievements = [
     {
@@ -353,7 +408,7 @@ export default function ModernPortfolio() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white p-8">
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -927,81 +982,120 @@ export default function ModernPortfolio() {
             </motion.div>
           </div>
 
-          {/* Technical Skills Section */}
-<motion.section
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  viewport={{ once: true }}
-  className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a]"
->
-  <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
-    🚀 Technical Skills
-  </h3>
-
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-    {[
-      {
-        title: "Programming Languages",
-        color: "from-indigo-500 to-pink-500",
-        skills: ["Python", "C++", "Java"],
-        icon: "💻",
-      },
-      {
-        title: "Tools & Platforms",
-        color: "from-emerald-400 to-teal-500",
-        skills: ["Git", "GitHub"],
-        icon: "🛠️",
-      },
-      {
-        title: "Databases",
-        color: "from-green-400 to-emerald-600",
-        skills: ["MySQL"],
-        icon: "🗄️",
-      },
-      {
-        title: "Web Frameworks",
-        color: "from-yellow-400 via-orange-500 to-pink-500",
-        skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
-        icon: "🌐",
-      },
-      {
-        title: "Core Concepts",
-        color: "from-cyan-400 to-sky-500",
-        skills: ["OOP", "Data Structures", "Agile", "CI/CD"],
-        icon: "🧠",
-      },
-    ].map((category, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.05, y: -4 }}
-        transition={{ duration: 0.3 }}
-        className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+          <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-3xl"
       >
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-2xl">{category.icon}</span>
-          <h4
-            className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
-          >
-            {category.title}
-          </h4>
+        <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
+          🚀 Technical Skills
+        </h3>
+
+        {/* Skills with Progress Bars */}
+        <div className="mb-20">
+          <h4 className="text-2xl font-bold mb-8 text-center text-white">Skill Proficiency</h4>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {skillsWithLevels.map((skill) => (
+              <div
+                key={skill.name}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-105"
+                onMouseEnter={() => setHoveredSkill(skill.name)}
+                onMouseLeave={() => setHoveredSkill(null)}
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-white font-medium">{skill.name}</span>
+                  <span className="text-gray-400 text-sm">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-2">
+                  <div
+                    className={`bg-gradient-to-r ${skill.color} h-2 rounded-full transition-all duration-1000 ease-out ${
+                      hoveredSkill === skill.name ? "animate-pulse" : ""
+                    }`}
+                    style={{
+                      width: `${skill.level}%`,
+                      transition: "width 1s ease-out",
+                    }}
+                  />
+                </div>
+                <div className="text-xs text-gray-500 mt-1">{skill.category}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 mt-4">
-          {category.skills.map((skill, idx) => (
-            <motion.span
-              key={idx}
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
+        {/* Skill Categories */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05, y: -4 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
             >
-              {skill}
-            </motion.span>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-2xl">{category.icon}</span>
+                <h4
+                  className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
+                >
+                  {category.title}
+                </h4>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-4">
+                {category.skills.map((skill, idx) => (
+                  <motion.span
+                    key={idx}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
-      </motion.div>
-    ))}
-  </div>
-</motion.section>
+
+        {/* Stats Summary */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div className="text-3xl font-bold text-cyan-400 mb-2">5+</div>
+            <div className="text-gray-300 text-sm">Programming Languages</div>
+          </div>
+          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div className="text-3xl font-bold text-green-400 mb-2">10+</div>
+            <div className="text-gray-300 text-sm">Technologies</div>
+          </div>
+          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+            <div className="text-gray-300 text-sm">Frameworks</div>
+          </div>
+          <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <div className="text-3xl font-bold text-orange-400 mb-2">5+</div>
+            <div className="text-gray-300 text-sm">Tools & Platforms</div>
+          </div>
+        </div>
+
+        {/* Currently Learning */}
+        <div className="mt-20 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+          <h4 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
+            🌱 Currently Learning
+          </h4>
+          <div className="flex flex-wrap justify-center gap-4">
+            {currentlyLearning.map((tech, idx) => (
+              <div
+                key={idx}
+                className="px-6 py-3 bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur-sm rounded-full border border-green-400/30 text-green-300 font-medium hover:scale-110 transition-transform duration-200 cursor-pointer"
+              >
+                <span className="mr-2">📚</span>
+                {tech}
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
 
       {/* Projects Section */}
