@@ -928,18 +928,17 @@ export default function ModernPortfolio() {
           </div>
 
           {/* Technical Skills */}
-<motion.div
+          <motion.div
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
   viewport={{ once: true }}
-  className="px-4 sm:px-8 lg:px-16 py-10"
 >
-  <h3 className="text-4xl font-extrabold mb-12 text-center bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
+  <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
     Technical Skills
   </h3>
 
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
     {[
       {
         title: "Programming Languages",
@@ -948,7 +947,7 @@ export default function ModernPortfolio() {
       },
       {
         title: "Tools and Platforms",
-        color: "from-indigo-400 via-blue-500 to-purple-500",
+        color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["GitHub", "Git"],
       },
       {
@@ -958,27 +957,22 @@ export default function ModernPortfolio() {
       },
       {
         title: "Web Frameworks",
-        color: "from-pink-500 via-red-500 to-yellow-500",
+        color: "from-blue-500 via-purple-500 to-pink-500",
         skills: ["HTML", "CSS", "JavaScript", "FlutterFlow"],
       },
       {
         title: "Core Concepts",
         color: "from-yellow-400 to-orange-500",
-        skills: [
-          "Object Oriented Programming",
-          "Data Structure",
-          "Agile Methodology",
-          "CI/CD",
-        ],
+        skills: ["Object Oriented Programming", "Data Structure", "Agile Methodology", "CI/CD"],
       },
     ].map((category, index) => (
       <motion.div
         key={index}
         whileHover={{ scale: 1.03, y: -5 }}
-        className="bg-white/10 border border-white/10 backdrop-blur-lg rounded-2xl p-6 transition-all duration-300 shadow-md hover:shadow-2xl hover:bg-white/20"
+        className={`bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 shadow-lg hover:shadow-xl`}
       >
         <h4
-          className={`text-xl font-bold mb-5 bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
+          className={`text-xl font-semibold text-white mb-4 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
         >
           {category.title}
         </h4>
@@ -987,7 +981,7 @@ export default function ModernPortfolio() {
             <motion.span
               key={idx}
               whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 text-sm text-white font-medium shadow-sm hover:bg-white/30 transition duration-200"
+              className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-sm text-white font-medium shadow-sm hover:bg-white/20 transition"
             >
               {skill}
             </motion.span>
@@ -997,6 +991,8 @@ export default function ModernPortfolio() {
     ))}
   </div>
 </motion.div>
+</div>
+      </motion.section>
 
 
       {/* Projects Section */}
