@@ -30,7 +30,7 @@ import {
   Clock,
   Calendar,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+
 
 export default function ModernPortfolio() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -45,7 +45,7 @@ export default function ModernPortfolio() {
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
 
   // Refs for sections
-  const homeRef = useRef<HTMLElement>(null)
+  const homeRef = useRef(null)
   const aboutRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
   const achievementsRef = useRef<HTMLElement>(null)
