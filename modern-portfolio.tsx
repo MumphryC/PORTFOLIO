@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import {
@@ -30,27 +29,23 @@ import {
   Clock,
   Calendar,
 } from "lucide-react"
-
+import { Button } from "@/components/ui/button"
 
 export default function ModernPortfolio() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
   const [isLoaded, setIsLoaded] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
+  const [activeSection, setActiveSection] = useState<string>("home")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const [hoveredSkill, setHoveredSkill] = useState(null)
-
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], [0, -50])
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
-
   // Refs for sections
-  const homeRef = useRef(null)
+  const homeRef = useRef<HTMLElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
   const projectsRef = useRef<HTMLElement>(null)
   const achievementsRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
-
   const navItems = [
     { id: "home", label: "Home", icon: <User className="w-4 h-4" />, ref: homeRef },
     { id: "about", label: "About", icon: <Target className="w-4 h-4" />, ref: aboutRef },
@@ -58,7 +53,6 @@ export default function ModernPortfolio() {
     { id: "achievements", label: "Achievements", icon: <Trophy className="w-4 h-4" />, ref: achievementsRef },
     { id: "contact", label: "Contact", icon: <MessageCircle className="w-4 h-4" />, ref: contactRef },
   ]
-
   const [showAllEducation, setShowAllEducation] = useState(false)
   const [showAllExperience, setShowAllExperience] = useState(false)
   const [showAllProjects, setShowAllProjects] = useState(false)
@@ -72,7 +66,6 @@ export default function ModernPortfolio() {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
     window.addEventListener("mousemove", handleMouseMove)
-
     // Intersection Observer for active section
     const observer = new IntersectionObserver(
       (entries) => {
@@ -84,13 +77,11 @@ export default function ModernPortfolio() {
       },
       { threshold: 0.3 },
     )
-
     navItems.forEach((item) => {
       if (item.ref.current) {
         observer.observe(item.ref.current)
       }
     })
-
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
       observer.disconnect()
@@ -185,6 +176,150 @@ export default function ModernPortfolio() {
       icon: <Database className="w-6 h-6" />,
     },
   ]
+
+  // Project images for carousel
+  const projectImages = {
+    0: ["/project-1-1.png", "/project-1-2.png", "/project-1-3.png"],
+    1: ["/project-2-1.png", "/project-2-2.png", "/project-2-3.png"],
+    2: ["/project-3-1.png", "/project-3-2.png", "/project-3-3.png"],
+  }
+
+  const skillsWithLevels = [
+    { name: "Python", level: 90, color: "from-blue-400 to-blue-600", category: "Programming" },
+    { name: "JavaScript", level: 85, color: "from-yellow-400 to-orange-500", category: "Programming" },
+    { name: "C++", level: 80, color: "from-green-400 to-green-600", category: "Programming" },
+    { name: "Java", level: 75, color: "from-red-400 to-red-600", category: "Programming" },
+    { name: "HTML/CSS", level: 85, color: "from-pink-400 to-rose-500", category: "Web" },
+    { name: "React", level: 80, color: "from-cyan-400 to-blue-500", category: "Web" },
+    { name: "Flutter", level: 75, color: "from-purple-400 to-purple-600", category: "Mobile" },
+    { name: "MySQL", level: 80, color: "from-indigo-400 to-purple-600", category: "Database" },
+    { name: "Git", level: 85, color: "from-orange-400 to-red-500", category: "Tools" },
+    { name: "AWS", level: 70, color: "from-emerald-400 to-teal-500", category: "Cloud" },
+  ]
+
+  const skillCategories = [
+    {
+      title: "Programming Languages", // 📝 CHANGE CATEGORY NAME
+      color: "from-indigo-500 to-pink-500", // 🎨 CHANGE GRADIENT COLORS
+      skills: ["Python", "C++", "Java", "JavaScript"], // 📝 REPLACE WITH YOUR SKILLS
+      icon: "💻", // 📝 CHANGE EMOJI ICON
+    },
+    {
+      title: "Web Technologies",
+      color: "from-yellow-400 via-orange-500 to-pink-500",
+      skills: ["HTML", "CSS", "JavaScript", "React"],
+      icon: "🌐",
+    },
+    {
+      title: "Mobile Development",
+      color: "from-purple-400 to-pink-500",
+      skills: ["Flutter", "FlutterFlow", "Dart"],
+      icon: "📱",
+    },
+    {
+      title: "Databases",
+      color: "from-green-400 to-emerald-600",
+      skills: ["MySQL", "SQLite"],
+      icon: "🗄️",
+    },
+    {
+      title: "Tools & Platforms",
+      color: "from-emerald-400 to-teal-500",
+      skills: ["Git", "GitHub", "Docker"],
+      icon: "🛠️",
+    },
+    {
+      title: "Core Concepts",
+      color: "from-cyan-400 to-sky-500",
+      skills: ["OOP", "Data Structures", "Algorithms", "Agile"],
+      icon: "🧠",
+    },
+  ]
+
+  const currentlyLearning = [
+    "Next.js",
+    "TypeScript", 
+    "GraphQL",
+    "Kubernetes",
+    "Machine Learning",
+    "Blockchain Development"
+  ]
+
+  const achievements = [
+    {
+      title: "Full Stack Development Certification",
+      organization: "Tech Institute",
+      date: "2023",
+      description:
+        "Comprehensive certification covering modern web technologies and best practices. Completed intensive 6-month program with hands-on projects.",
+      icon: <Award className="w-6 h-6" />,
+      color: "from-blue-400 to-purple-500",
+      image: "/cert-fullstack.png",
+      skills: ["React", "Node.js", "MongoDB", "AWS"],
+    },
+    {
+      title: "Best Mobile App - University Hackathon",
+      organization: "State University",
+      date: "2023",
+      description:
+        "Won first place for innovative expense tracking app with ML integration. Competed against 50+ teams over 48 hours.",
+      icon: <Trophy className="w-6 h-6" />,
+      color: "from-yellow-400 to-orange-500",
+      image: "/hackathon-trophy.png",
+      prize: "$5,000 + Mentorship Program",
+    },
+    {
+      title: "Open Source Contributor",
+      organization: "GitHub",
+      date: "2022-Present",
+      description:
+        "Active contributor to various open source projects with 50+ merged PRs. Contributed to popular libraries and frameworks.",
+      icon: <Code className="w-6 h-6" />,
+      color: "from-green-400 to-teal-500",
+      image: "/github-contributions.png",
+      contributions: ["React Router", "Express.js", "Material-UI"],
+    },
+    {
+      title: "AWS Cloud Practitioner",
+      organization: "Amazon Web Services",
+      date: "2022",
+      description:
+        "Certified in cloud computing fundamentals and AWS services. Demonstrates knowledge of AWS Cloud concepts and services.",
+      icon: <Sparkles className="w-6 h-6" />,
+      color: "from-purple-400 to-pink-500",
+      image: "/aws-cert.png",
+      validUntil: "2025",
+    },
+    {
+      title: "Dean's List Recognition",
+      organization: "State University",
+      date: "2021-2024",
+      description:
+        "Consistently maintained high academic performance throughout university career. Recognized for academic excellence each semester.",
+      icon: <Award className="w-6 h-6" />,
+      color: "from-indigo-400 to-purple-500",
+      image: "/deans-list.png",
+      gpa: "3.8/4.0",
+    },
+    {
+      title: "JavaScript Algorithms Certification",
+      organization: "FreeCodeCamp",
+      date: "2021",
+      description:
+        "Completed comprehensive JavaScript algorithms and data structures curriculum. Solved 100+ coding challenges.",
+      icon: <Code className="w-6 h-6" />,
+      color: "from-yellow-400 to-red-500",
+      image: "/js-cert.png",
+      hours: "300+ hours",
+    },
+  ]
+
+  // Add project images for carousel
+  const projectImages = {
+    0: ["/project-1-1.png", "/project-1-2.png", "/project-1-3.png"],
+    1: ["/project-2-1.png", "/project-2-2.png", "/project-2-3.png"],
+    2: ["/project-3-1.png", "/project-3-2.png", "/project-3-3.png"],
+  }
 
   const allEducation = [
     {
@@ -303,78 +438,6 @@ export default function ModernPortfolio() {
     },
   ]
 
-  // Add project images for carousel
-  const projectImages = {
-    0: ["/project-1-1.png", "/project-1-2.png", "/project-1-3.png"],
-    1: ["/project-2-1.png", "/project-2-2.png", "/project-2-3.png"],
-    2: ["/project-3-1.png", "/project-3-2.png", "/project-3-3.png"],
-  }
-
-  const skillsWithLevels = [
-    { name: "Python", level: 90, color: "from-blue-400 to-blue-600", category: "Programming" },
-    { name: "JavaScript", level: 85, color: "from-yellow-400 to-orange-500", category: "Programming" },
-    { name: "C++", level: 80, color: "from-green-400 to-green-600", category: "Programming" },
-    { name: "Java", level: 75, color: "from-red-400 to-red-600", category: "Programming" },
-    { name: "HTML/CSS", level: 85, color: "from-pink-400 to-rose-500", category: "Web" },
-    { name: "React", level: 80, color: "from-cyan-400 to-blue-500", category: "Web" },
-    { name: "Flutter", level: 75, color: "from-purple-400 to-purple-600", category: "Mobile" },
-    { name: "MySQL", level: 80, color: "from-indigo-400 to-purple-600", category: "Database" },
-    { name: "Git", level: 85, color: "from-orange-400 to-red-500", category: "Tools" },
-    { name: "AWS", level: 70, color: "from-emerald-400 to-teal-500", category: "Cloud" },
-    
-    // 📝 ADD MORE SKILLS HERE:
-    // { name: "YOUR_SKILL", level: 80, color: "from-COLOR1 to-COLOR2", category: "CATEGORY" },
-  ]
-
-  // ✏️ EDIT YOUR SKILL CATEGORIES HERE - Change title, colors, skills array, and icons
-  // ✏️ EDIT YOUR SKILL CATEGORIES HERE - Change title, colors, skills array, and icons
-  const skillCategories = [
-    {
-      title: "Programming Languages", // 📝 CHANGE CATEGORY NAME
-      color: "from-indigo-500 to-pink-500", // 🎨 CHANGE GRADIENT COLORS
-      skills: ["Python", "C++", "Java", "JavaScript"], // 📝 REPLACE WITH YOUR SKILLS
-      icon: "💻", // 📝 CHANGE EMOJI ICON
-    },
-    {
-      title: "Web Technologies",
-      color: "from-yellow-400 via-orange-500 to-pink-500",
-      skills: ["HTML", "CSS", "JavaScript", "React"],
-      icon: "🌐",
-    },
-    {
-      title: "Mobile Development",
-      color: "from-purple-400 to-pink-500",
-      skills: ["Flutter", "FlutterFlow", "Dart"],
-      icon: "📱",
-    },
-    {
-      title: "Databases",
-      color: "from-green-400 to-emerald-600",
-      skills: ["MySQL", "SQLite"],
-      icon: "🗄️",
-    },
-    {
-      title: "Tools & Platforms",
-      color: "from-emerald-400 to-teal-500",
-      skills: ["Git", "GitHub", "Docker"],
-      icon: "🛠️",
-    },
-    {
-      title: "Core Concepts",
-      color: "from-cyan-400 to-sky-500",
-      skills: ["OOP", "Data Structures", "Algorithms", "Agile"],
-      icon: "🧠",
-    },
-    
-    // 📝 ADD MORE CATEGORIES HERE:
-    // {
-    //   title: "YOUR_CATEGORY",
-    //   color: "from-COLOR1 to-COLOR2",
-    //   skills: ["SKILL1", "SKILL2", "SKILL3"],
-    //   icon: "🔧",
-    // },
-  ]
-
   // 👇 ADD THE currentlyLearning ARRAY RIGHT HERE, AFTER skillCategories
   const currentlyLearning = [
     "Next.js",
@@ -385,40 +448,41 @@ export default function ModernPortfolio() {
     "Blockchain Development"
   ]
 
-  const achievements = [
-    {
-      title: "Full Stack Development Certification",
-      organization: "Tech Institute",
-      date: "2023",
-      description: "Comprehensive certification covering modern web technologies and best practices",
-      icon: <Award className="w-6 h-6" />,
-      color: "from-blue-400 to-purple-500",
-    },
-    {
-      title: "Best Mobile App - University Hackathon",
-      organization: "State University",
-      date: "2023",
-      description: "Won first place for innovative expense tracking app with ML integration",
-      icon: <Trophy className="w-6 h-6" />,
-      color: "from-yellow-400 to-orange-500",
-    },
-    {
-      title: "Open Source Contributor",
-      organization: "GitHub",
-      date: "2022-Present",
-      description: "Active contributor to various open source projects with 50+ merged PRs",
-      icon: <Code className="w-6 h-6" />,
-      color: "from-green-400 to-teal-500",
-    },
-    {
-      title: "AWS Cloud Practitioner",
-      organization: "Amazon Web Services",
-      date: "2022",
-      description: "Certified in cloud computing fundamentals and AWS services",
-      icon: <Sparkles className="w-6 h-6" />,
-      color: "from-purple-400 to-pink-500",
-    },
-  ]
+  useEffect(() => {
+    setIsLoaded(true)
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    window.addEventListener("mousemove", handleMouseMove)
+    // Intersection Observer for active section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.3 },
+    )
+    navItems.forEach((item) => {
+      if (item.ref.current) {
+        observer.observe(item.ref.current)
+      }
+    })
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
+      observer.disconnect()
+    }
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const section = navItems.find((item) => item.id === sectionId)?.ref.current
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+      setIsMobileMenuOpen(false)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white p-8">
@@ -440,7 +504,6 @@ export default function ModernPortfolio() {
                 Portfolio
               </span>
             </motion.div>
-
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
@@ -459,7 +522,6 @@ export default function ModernPortfolio() {
                 </motion.button>
               ))}
             </div>
-
             {/* Mobile Menu Button */}
             <motion.button
               whileTap={{ scale: 0.95 }}
@@ -469,7 +531,6 @@ export default function ModernPortfolio() {
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </motion.button>
           </div>
-
           {/* Mobile Navigation */}
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -499,11 +560,9 @@ export default function ModernPortfolio() {
           </motion.div>
         </div>
       </motion.nav>
-
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
-
         {/* Floating Orbs */}
         <motion.div
           className="absolute w-96 h-96 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
@@ -532,7 +591,6 @@ export default function ModernPortfolio() {
           transition={{ type: "spring", damping: 30, stiffness: 50 }}
           style={{ left: "60%", top: "60%" }}
         />
-
         {/* Floating Particles */}
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -554,7 +612,6 @@ export default function ModernPortfolio() {
           />
         ))}
       </div>
-
       {/* Home Section */}
       <motion.section
         ref={homeRef}
@@ -568,7 +625,7 @@ export default function ModernPortfolio() {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 1.2, type: "spring", bounce: 0.4 }}
-            className="relative mx-auto lg:mx-0 order-2 lg:order-1"
+            className="relative mx-auto order-2 lg:order-1"
           >
             <div className="relative w-96 h-96 mx-auto">
               {/* Animated Ring */}
@@ -584,20 +641,17 @@ export default function ModernPortfolio() {
               >
                 <div className="w-full h-full bg-slate-900 rounded-full" />
               </motion.div>
-
               {/* Pulsing Glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-50"
+                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
               />
-
               {/* Profile Image */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20 backdrop-blur-sm z-10">
                 <img src="/5R.JPG" alt="Professional Developer" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
               </div>
-
               {/* Floating Icons */}
               <motion.div
                 className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl"
@@ -612,7 +666,6 @@ export default function ModernPortfolio() {
               >
                 <Code className="w-8 h-8 text-white" />
               </motion.div>
-
               <motion.div
                 className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-pink-400 to-red-500 rounded-full flex items-center justify-center shadow-2xl"
                 animate={{
@@ -626,7 +679,6 @@ export default function ModernPortfolio() {
               >
                 <Heart className="w-6 h-6 text-white" />
               </motion.div>
-
               <motion.div
                 className="absolute top-1/2 -right-8 w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-2xl"
                 animate={{
@@ -642,7 +694,6 @@ export default function ModernPortfolio() {
               </motion.div>
             </div>
           </motion.div>
-
           {/* Hero Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -664,7 +715,6 @@ export default function ModernPortfolio() {
               <span className="text-green-300 font-medium">Available for opportunities</span>
               <Sparkles className="w-4 h-4 text-green-400" />
             </motion.div>
-
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
               <h1 className="text-6xl lg:text-8xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
@@ -685,7 +735,6 @@ export default function ModernPortfolio() {
                 <span className="text-gray-400">Powered by coffee & curiosity</span>
               </motion.div>
             </motion.div>
-
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -694,7 +743,6 @@ export default function ModernPortfolio() {
             >
               Fresh Computer Engineering graduate passionate about clean code, creative problem-solving, and user-centered design. Willing to learn, explore new technologies, and build digital experiences that make a difference.
             </motion.p>
-
             {/* Skills Preview */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -715,7 +763,6 @@ export default function ModernPortfolio() {
                 </motion.div>
               ))}
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -737,14 +784,13 @@ export default function ModernPortfolio() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-4 bg-transparent"
+                  className="w-full border-white/30 text-white hover:bg-white/10 bg-transparent"
                 >
                   <Download className="w-5 h-5 mr-3" />
                   Download CV
                 </Button>
               </motion.div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -759,6 +805,8 @@ export default function ModernPortfolio() {
                 <motion.a
                   key={index}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, y: -5 }}
                   whileTap={{ scale: 0.9 }}
                   className={`w-14 h-14 bg-gradient-to-r ${color} rounded-full flex items-center justify-center shadow-2xl hover:shadow-3xl transition-all duration-300`}
@@ -770,7 +818,6 @@ export default function ModernPortfolio() {
           </motion.div>
         </div>
       </motion.section>
-
       {/* About Section */}
       <motion.section
         ref={aboutRef}
@@ -796,7 +843,6 @@ export default function ModernPortfolio() {
               Get to know me better - my skills, background, and what drives my passion for development
             </p>
           </motion.div>
-
           {/* Soft Skills */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -824,7 +870,6 @@ export default function ModernPortfolio() {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 text-center"
                 >
@@ -835,7 +880,6 @@ export default function ModernPortfolio() {
               ))}
             </div>
           </motion.div>
-
           {/* Introduction */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -849,15 +893,10 @@ export default function ModernPortfolio() {
                 Introduction
               </h3>
               <p className="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto">
-                I'm a passionate Full Stack Developer with a strong foundation in modern web technologies and mobile
-                development. My journey in software development began during my university years, where I discovered my
-                love for creating innovative solutions that solve real-world problems. I thrive in collaborative
-                environments and am always eager to learn new technologies and methodologies. My goal is to build
-                applications that not only function flawlessly but also provide exceptional user experiences.
+                I'm a passionate Full Stack Developer with a strong foundation in modern web technologies and mobile development. My journey in software development began during my university years, where I discovered my love for creating innovative solutions that solve real-world problems. I thrive in collaborative environments and am always eager to learn new technologies and methodologies. My goal is to build applications that not only function flawlessly but also provide exceptional user experiences.
               </p>
             </div>
           </motion.div>
-
           {/* Education & Experience */}
           <div className="grid lg:grid-cols-2 gap-12 mb-20">
             {/* Education */}
@@ -878,7 +917,7 @@ export default function ModernPortfolio() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center">
@@ -920,7 +959,6 @@ export default function ModernPortfolio() {
                 </motion.button>
               </div>
             </motion.div>
-
             {/* Experience */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -939,7 +977,7 @@ export default function ModernPortfolio() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-orange-400/30 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center">
@@ -994,124 +1032,118 @@ export default function ModernPortfolio() {
               </div>
             </motion.div>
           </div>
-
           {/* Technical Skills Section */}
           <motion.section
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  viewport={{ once: true }}
-  className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-3xl"
->
-  <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
-    🚀 Technical Skills
-  </h3>
-
-  {/* Skills with Progress Bars */}
-  <div className="mb-20">
-    <h4 className="text-2xl font-bold mb-8 text-center text-white">Skill Proficiency</h4>
-    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      {skillsWithLevels.map((skill) => (
-        <div
-          key={skill.name}
-          className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-105"
-          onMouseEnter={() => setHoveredSkill(skill.name)}
-          onMouseLeave={() => setHoveredSkill(null)}
-        >
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-white font-medium">{skill.name}</span>
-            <span className="text-gray-400 text-sm">{skill.level}%</span>
-          </div>
-          <div className="w-full bg-gray-700 rounded-full h-2">
-            <div
-              className={`bg-gradient-to-r ${skill.color} h-2 rounded-full transition-all duration-1000 ease-out ${
-                hoveredSkill === skill.name ? "animate-pulse" : ""
-              }`}
-              style={{
-                width: `${skill.level}%`,
-                transition: "width 1s ease-out",
-              }}
-            />
-          </div>
-          <div className="text-xs text-gray-500 mt-1">{skill.category}</div>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Skill Categories */}
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
-    {skillCategories.map((category, index) => (
-      <motion.div
-        key={index}
-        whileHover={{ scale: 1.05, y: -4 }}
-        transition={{ duration: 0.3 }}
-        className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-2xl">{category.icon}</span>
-          <h4
-            className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent tracking-wide`}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="py-16 px-4 sm:px-8 lg:px-24 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a] rounded-3xl"
           >
-            {category.title}
-          </h4>
+            <h3 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent tracking-wide drop-shadow-md">
+              🚀 Technical Skills
+            </h3>
+            {/* Skills with Progress Bars */}
+            <div className="mb-20">
+              <h4 className="text-2xl font-bold mb-8 text-center text-white">Skill Proficiency</h4>
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {skillsWithLevels.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:transform hover:scale-105"
+                    onMouseEnter={() => setHoveredSkill(skill.name)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                  >
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-gray-400 text-sm">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div
+                        className={`bg-gradient-to-r ${skill.color} h-2 rounded-full transition-all duration-1000 ease-out ${
+                          hoveredSkill === skill.name ? "animate-pulse" : ""
+                        }`}
+                        style={{
+                          width: `${skill.level}%`,
+                          transition: "width 1s ease-out",
+                        }}
+                      />
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1">{skill.category}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Skill Categories */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {skillCategories.map((category, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl">{category.icon}</span>
+                    <h4
+                      className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
+                    >
+                      {category.title}
+                    </h4>
+                  </div>
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    {category.skills.map((skill, idx) => (
+                      <motion.span
+                        key={idx}
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            {/* Stats Summary */}
+            <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="text-3xl font-bold text-cyan-400 mb-2">5+</div>
+                <div className="text-gray-300 text-sm">Programming Languages</div>
+              </div>
+              <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="text-3xl font-bold text-green-400 mb-2">10+</div>
+                <div className="text-gray-300 text-sm">Technologies</div>
+              </div>
+              <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
+                <div className="text-gray-300 text-sm">Frameworks</div>
+              </div>
+              <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <div className="text-3xl font-bold text-orange-400 mb-2">5+</div>
+                <div className="text-gray-300 text-sm">Tools & Platforms</div>
+              </div>
+            </div>
+            {/* Currently Learning */}
+            <div className="mt-20 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+              <h4 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
+                🌱 Currently Learning
+              </h4>
+              <div className="flex flex-wrap justify-center gap-4">
+                {currentlyLearning.map((tech, idx) => (
+                  <div
+                    key={idx}
+                    className="px-6 py-3 bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur-sm rounded-full border border-green-400/30 text-green-300 font-medium hover:scale-110 transition-transform duration-200 cursor-pointer"
+                  >
+                    <span className="mr-2">📚</span>
+                    {tech}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
         </div>
-
-        <div className="flex flex-wrap gap-3 mt-4">
-          {category.skills.map((skill, idx) => (
-            <motion.span
-              key={idx}
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-sm shadow-sm hover:bg-white/20 transition-all duration-200"
-            >
-              {skill}
-            </motion.span>
-          ))}
-        </div>
-      </motion.div>
-    ))}
-  </div>
-
-  {/* Stats Summary */}
-  <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-      <div className="text-3xl font-bold text-cyan-400 mb-2">5+</div>
-      <div className="text-gray-300 text-sm">Programming Languages</div>
-    </div>
-    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-      <div className="text-3xl font-bold text-green-400 mb-2">10+</div>
-      <div className="text-gray-300 text-sm">Technologies</div>
-    </div>
-    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-      <div className="text-3xl font-bold text-purple-400 mb-2">3+</div>
-      <div className="text-gray-300 text-sm">Frameworks</div>
-    </div>
-    <div className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-      <div className="text-3xl font-bold text-orange-400 mb-2">5+</div>
-      <div className="text-gray-300 text-sm">Tools & Platforms</div>
-    </div>
-  </div>
-
-  {/* Currently Learning */}
-  <div className="mt-20 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-    <h4 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
-      🌱 Currently Learning
-    </h4>
-    <div className="flex flex-wrap justify-center gap-4">
-      {currentlyLearning.map((tech, idx) => (
-        <div
-          key={idx}
-          className="px-6 py-3 bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur-sm rounded-full border border-green-400/30 text-green-300 font-medium hover:scale-110 transition-transform duration-200 cursor-pointer"
-        >
-          <span className="mr-2">📚</span>
-          {tech}
-        </div>
-      ))}
-    </div>
-  </div>
-</motion.section>
-
-
+      </motion.section>
       {/* Projects Section */}
       <section ref={projectsRef} id="projects" className="relative py-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -1139,7 +1171,6 @@ export default function ModernPortfolio() {
               A collection of innovative solutions that blend cutting-edge technology with exceptional user experience.
             </p>
           </motion.div>
-
           {/* Project Grid Preview */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {projects.map((project, index) => (
@@ -1148,9 +1179,12 @@ export default function ModernPortfolio() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -10 }}
                 className="group cursor-pointer"
+                onClick={() => {
+                  setSelectedProject(project)
+                  setCurrentImageIndex(0)
+                }}
               >
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300">
                   <div className="relative h-48 overflow-hidden">
@@ -1181,7 +1215,6 @@ export default function ModernPortfolio() {
               </motion.div>
             ))}
           </div>
-
           <div className="text-center">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -1195,7 +1228,6 @@ export default function ModernPortfolio() {
           </div>
         </div>
       </section>
-
       {/* Achievements Section */}
       <motion.section
         ref={achievementsRef}
@@ -1231,7 +1263,6 @@ export default function ModernPortfolio() {
               Milestones and recognitions that showcase my commitment to excellence
             </p>
           </motion.div>
-
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {achievements.slice(0, 4).map((achievement, index) => (
               <motion.div
@@ -1239,11 +1270,10 @@ export default function ModernPortfolio() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="relative group"
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300 h-full">
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 h-full">
                   <div className="flex items-start gap-4 mb-4">
                     <motion.div
                       className={`w-16 h-16 bg-gradient-to-r ${achievement.color} rounded-2xl flex items-center justify-center shadow-lg`}
@@ -1253,8 +1283,8 @@ export default function ModernPortfolio() {
                       {achievement.icon}
                     </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
-                      <p className="text-gray-400 text-sm mb-1">{achievement.organization}</p>
+                      <h3 className="text-2xl font-bold text-white mb-2">{achievement.title}</h3>
+                      <p className="text-yellow-400 font-semibold text-lg mb-1">{achievement.organization}</p>
                       <p className="text-gray-500 text-sm">{achievement.date}</p>
                     </div>
                   </div>
@@ -1263,7 +1293,6 @@ export default function ModernPortfolio() {
               </motion.div>
             ))}
           </div>
-
           <div className="text-center">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -1277,7 +1306,6 @@ export default function ModernPortfolio() {
           </div>
         </div>
       </motion.section>
-
       {/* Contact Section */}
       <motion.section
         ref={contactRef}
@@ -1308,13 +1336,12 @@ export default function ModernPortfolio() {
                 <Rocket className="w-5 h-5 text-green-400" />
                 <span className="text-green-300 font-medium">Ready to collaborate</span>
               </motion.div>
-
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent"
+                className="text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
               >
                 Let's Build Something
                 <br />
@@ -1322,7 +1349,6 @@ export default function ModernPortfolio() {
                   Extraordinary Together
                 </span>
               </motion.h2>
-
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1330,10 +1356,8 @@ export default function ModernPortfolio() {
                 viewport={{ once: true }}
                 className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
               >
-                Ready to turn your innovative ideas into reality? Let's discuss your next project and create something
-                that makes a lasting impact.
+                Ready to turn your innovative ideas into reality? Let's discuss your next project and create something that makes a lasting impact.
               </motion.p>
-
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1344,15 +1368,15 @@ export default function ModernPortfolio() {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button
                     size="lg"
+                    onClick={() => scrollToSection("contact")}
                     className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white border-0 shadow-2xl text-xl px-12 py-6"
                   >
                     <Mail className="w-6 h-6 mr-4" />
                     Get In Touch
-                    <ArrowRight className="w-6 h-6 ml-4" />
+                    <Rocket className="w-6 h-6 ml-4" />
                   </Button>
                 </motion.div>
               </motion.div>
-
               {/* Contact Methods */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -1363,46 +1387,36 @@ export default function ModernPortfolio() {
               >
                 {[
                   {
-                    icon: <Mail className="w-6 h-6" />,
-                    label: "Email",
-                    value: "hello@developer.com",
-                    color: "from-blue-400 to-blue-600",
-                  },
-                  {
-                    icon: <Linkedin className="w-6 h-6" />,
-                    label: "LinkedIn",
-                    value: "/in/developer",
-                    color: "from-blue-500 to-blue-700",
-                  },
-                  {
                     icon: <Github className="w-6 h-6" />,
-                    label: "GitHub",
-                    value: "@developer",
+                    href: "#",
                     color: "from-gray-400 to-gray-600",
                   },
-                ].map((contact, index) => (
-                  <motion.div
-                    key={contact.label}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    className="flex items-center gap-3 px-6 py-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                  { icon: <Linkedin className="w-6 h-6" />,
+                    href: "#",
+                    color: "from-blue-400 to-blue-600",
+                  },
+                  { icon: <Twitter className="w-6 h-6" />,
+                    href: "#",
+                    color: "from-sky-400 to-blue-500",
+                  },
+                ].map(({ icon, href, color }, index) => (
+                  <motion.a
+                    key={index}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.2, y: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-14 h-14 bg-gradient-to-r ${color} rounded-full flex items-center justify-center shadow-2xl hover:shadow-3xl transition-all duration-300`}
                   >
-                    <div
-                      className={`w-12 h-12 bg-gradient-to-r ${contact.color} rounded-lg flex items-center justify-center`}
-                    >
-                      {contact.icon}
-                    </div>
-                    <div>
-                      <p className="text-white font-medium">{contact.label}</p>
-                      <p className="text-gray-400 text-sm">{contact.value}</p>
-                    </div>
-                  </motion.div>
+                    {icon}
+                  </motion.a>
                 ))}
               </motion.div>
             </div>
           </motion.div>
         </div>
       </motion.section>
-
       {/* Education Modal */}
       {showAllEducation && (
         <motion.div
@@ -1434,7 +1448,6 @@ export default function ModernPortfolio() {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-
               <div className="space-y-8">
                 {allEducation.map((edu, index) => (
                   <motion.div
@@ -1443,166 +1456,12 @@ export default function ModernPortfolio() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-purple-400/30 transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
                   >
                     <div className="flex flex-row-reverse items-start gap-6">
-
-  {/* Right Side: Logo */}
-
-  <div className="w-40 h-40 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
-
-    <img
-      src={edu.logo || "/placeholder.svg?height=160&width=160&query=university logo"}
-      alt={edu.school}
-      className="w-32 h-32 object-contain"
-
-
-    />
-
-  </div>
-
-
-
-  {/* Left Side: All Education Info */}
-  <div className="flex-1">
-    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-      <div>
-        <h3 className="text-2xl font-bold text-white mb-2">{edu.degree}</h3>
-        <p className="text-purple-400 font-semibold text-lg mb-1">{edu.school}</p>
-        <p className="text-gray-400 font-medium">{edu.period}</p>
-      </div>
-      {edu.gpa && (
-        <div className="mt-4 lg:mt-0 px-4 py-2 bg-green-500/20 rounded-full border border-green-400/30">
-          <p className="text-green-400 font-bold">GPA: {edu.gpa}</p>
-        </div>
-      )}
-    </div>
-
-    <p className="text-gray-300 leading-relaxed mb-6">{edu.description}</p>
-
-    {edu.certification && (
-      <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
-        <div className="flex flex-wrap gap-2">
-          {edu.skills.map((skill, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
-            >
-              <Trophy className="w-3 h-3" />
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-    )}
-
-    {edu.skills && (
-      <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
-        <div className="flex flex-wrap gap-2">
-          {edu.skills.map((skill, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
-            >
-              <Trophy className="w-3 h-3" />
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-    )}
-
-    {edu.projects && (
-      <div className="mb-4">
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
-        <div className="flex flex-wrap gap-2">
-          {edu.projects.map((project, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
-            >
-              <Trophy className="w-3 h-3" />
-              {project}
-            </span>
-          ))}
-        </div>
-      </div>
-    )}
-
-    {edu.achievements && (
-      <div>
-        <h4 className="text-white font-semibold mb-3">Achievements:</h4>
-        <div className="flex flex-wrap gap-2">
-          {edu.achievements.map((achievement, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 bg-yellow-500/20 text-yellow-300 text-sm rounded-full border border-yellow-400/30 flex items-center gap-2"
-            >
-              <Trophy className="w-3 h-3" />
-              {achievement}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-
-      {/* Experience Modal */}
-      {showAllExperience && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setShowAllExperience(false)}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 50 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 50 }}
-            className="bg-gradient-to-br from-slate-900 via-orange-900/30 to-slate-900 rounded-3xl border border-white/20 max-w-6xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent mb-2">
-                    Professional Experience
-                  </h2>
-                  <p className="text-gray-400">My career journey and professional growth</p>
-                </div>
-                <button
-                  onClick={() => setShowAllExperience(false)}
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors border border-white/20"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
-              <div className="space-y-8">
-                {allExperience.map((exp, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-orange-400/30 transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center border border-orange-400/30">
+                      <div className="w-40 h-40 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border border-purple-400/30">
                         <img
-                          src={exp.logo || "/placeholder.svg?height=50&width=50&query=company logo"}
+                          src={edu.logo || "/placeholder.svg?height=50&width=50&query=company logo"}
                           alt={exp.company}
                           className="w-12 h-12 object-contain"
                         />
