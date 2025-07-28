@@ -157,6 +157,32 @@ export default function ModernPortfolio() {
       icon: <Smartphone className="w-6 h-6" />,
     },
     {
+      title: "ExpenseTracker Mobile",
+      tagline: "Smart expense tracking that learns from you 🧠",
+      summary:
+        "Flutter mobile app with ML-powered categorization and beautiful analytics. Revolutionizes personal finance management with intelligent automation and stunning visualizations that adapt to user behavior.",
+      image: "/project-2.png",
+      features: [
+        "🧠 ML-powered expense categorization",
+        "📱 Cross-platform Flutter architecture",
+        "⚡ Offline-first with smart sync",
+        "📸 OCR receipt scanning",
+        "🔮 Predictive budget insights",
+        "💰 Multi-currency support",
+      ],
+      techStack: {
+        frontend: ["Flutter", "Dart"],
+        backend: ["Django", "Python"],
+        database: ["SQLite"],
+        tools: ["Firebase", "Figma", "Git"],
+      },
+      liveUrl: "https://play.google.com/store/apps/expensetracker",
+      githubUrl: "https://github.com/username/expense-tracker",
+      learned: "Deep-dived into Flutter state management and implemented sophisticated offline-first architecture.",
+      color: "from-green-400 via-emerald-500 to-teal-500",
+      icon: <Smartphone className="w-6 h-6" />,
+    },
+    {
       title: "DevOps Pipeline Manager",
       tagline: "Orchestrate deployments like a symphony 🎼",
       summary:
