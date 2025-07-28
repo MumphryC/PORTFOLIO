@@ -29,14 +29,6 @@ import {
   Star,
   Clock,
   Calendar,
-  ShoppingCart,
-  BookOpen,
-  Users,
-  Cloud,
-  Shield,
-  Monitor,
-  Brain,
-  TrendingUp,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -190,136 +182,6 @@ export default function ModernPortfolio() {
       color: "from-orange-400 via-red-500 to-pink-500",
       icon: <Database className="w-6 h-6" />,
     },
-    {
-      title: "E-Commerce Analytics Hub",
-      tagline: "Turn data into profitable insights 📈",
-      summary:
-        "Advanced analytics platform for e-commerce businesses with real-time sales tracking, customer behavior analysis, and predictive forecasting. Helps businesses make data-driven decisions with beautiful visualizations.",
-      image: "/project-4.png",
-      features: [
-        "📊 Real-time sales dashboard",
-        "🎯 Customer behavior tracking",
-        "🔮 Predictive sales forecasting",
-        "📈 Advanced data visualization",
-        "🛒 Inventory optimization alerts",
-        "📱 Mobile analytics app",
-      ],
-      techStack: {
-        frontend: ["React", "TypeScript", "D3.js"],
-        backend: ["Node.js", "Express"],
-        database: ["PostgreSQL", "Redis"],
-        tools: ["Docker", "AWS", "Tableau"],
-      },
-      liveUrl: "https://ecommerce-analytics.vercel.app",
-      githubUrl: "https://github.com/username/ecommerce-analytics",
-      learned: "Gained expertise in data visualization with D3.js and implemented complex analytics algorithms for business intelligence.",
-      color: "from-purple-400 via-blue-500 to-cyan-500",
-      icon: <TrendingUp className="w-6 h-6" />,
-    },
-    {
-      title: "EduLearn Platform",
-      tagline: "Revolutionizing online education 🎓",
-      summary:
-        "Comprehensive learning management system with interactive courses, video streaming, progress tracking, and AI-powered personalized learning paths. Built for scalability with modern web technologies.",
-      image: "/project-5.png",
-      features: [
-        "📚 Interactive course builder",
-        "🎥 HD video streaming platform",
-        "🤖 AI-powered learning recommendations",
-        "📊 Student progress analytics",
-        "💬 Real-time discussion forums",
-        "🏆 Gamification and achievements",
-      ],
-      techStack: {
-        frontend: ["Vue.js", "Nuxt.js", "Tailwind CSS"],
-        backend: ["Python", "FastAPI"],
-        database: ["MongoDB", "Elasticsearch"],
-        tools: ["Docker", "Kubernetes", "AWS"],
-      },
-      liveUrl: "https://edulearn-platform.com",
-      githubUrl: "https://github.com/username/edulearn-platform",
-      learned: "Mastered Vue.js ecosystem and implemented scalable video streaming architecture with CDN optimization.",
-      color: "from-indigo-400 via-purple-500 to-pink-500",
-      icon: <BookOpen className="w-6 h-6" />,
-    },
-    {
-      title: "Social Connect Hub",
-      tagline: "Building meaningful connections 🤝",
-      summary:
-        "Modern social networking platform with real-time messaging, content sharing, and community features. Focuses on authentic connections with advanced privacy controls and content moderation.",
-      image: "/project-6.png",
-      features: [
-        "💬 Real-time messaging system",
-        "📸 Media sharing with filters",
-        "👥 Community group management",
-        "🛡️ Advanced privacy controls",
-        "🔍 Intelligent content discovery",
-        "📱 Progressive web app (PWA)",
-      ],
-      techStack: {
-        frontend: ["React", "Next.js", "Chakra UI"],
-        backend: ["Node.js", "GraphQL"],
-        database: ["MongoDB", "Redis"],
-        tools: ["Socket.io", "Cloudinary", "Vercel"],
-      },
-      liveUrl: "https://social-connect-hub.vercel.app",
-      githubUrl: "https://github.com/username/social-connect",
-      learned: "Implemented complex real-time features with GraphQL subscriptions and mastered modern React patterns.",
-      color: "from-pink-400 via-rose-500 to-red-500",
-      icon: <Users className="w-6 h-6" />,
-    },
-    {
-      title: "CloudSecure Monitor",
-      tagline: "Enterprise-grade security monitoring ⚡",
-      summary:
-        "Advanced cybersecurity monitoring platform that tracks threats, analyzes vulnerabilities, and provides real-time security insights. Built for enterprise environments with comprehensive reporting.",
-      image: "/project-7.png",
-      features: [
-        "🛡️ Real-time threat detection",
-        "📊 Security analytics dashboard",
-        "🚨 Automated alert system",
-        "📈 Vulnerability assessment",
-        "📋 Compliance reporting",
-        "🔐 Multi-factor authentication",
-      ],
-      techStack: {
-        frontend: ["Angular", "TypeScript", "Material UI"],
-        backend: ["Java", "Spring Boot"],
-        database: ["PostgreSQL", "InfluxDB"],
-        tools: ["Elasticsearch", "Kibana", "Docker"],
-      },
-      liveUrl: "https://cloudsecure-monitor.com",
-      githubUrl: "https://github.com/username/cloudsecure-monitor",
-      learned: "Developed expertise in cybersecurity patterns and implemented high-performance data processing pipelines.",
-      color: "from-red-400 via-orange-500 to-yellow-500",
-      icon: <Shield className="w-6 h-6" />,
-    },
-    {
-      title: "AI Content Studio",
-      tagline: "Create content with artificial intelligence 🤖",
-      summary:
-        "AI-powered content creation platform that generates articles, social media posts, and marketing copy. Features multiple AI models, content optimization, and collaboration tools for creative teams.",
-      image: "/project-8.png",
-      features: [
-        "🤖 Multiple AI model integration",
-        "✍️ Advanced text generation",
-        "🎨 Visual content creation",
-        "📊 Content performance analytics",
-        "👥 Team collaboration tools",
-        "🔄 Content workflow automation",
-      ],
-      techStack: {
-        frontend: ["Svelte", "SvelteKit", "Tailwind CSS"],
-        backend: ["Python", "FastAPI"],
-        database: ["Supabase", "Vector DB"],
-        tools: ["OpenAI API", "Hugging Face", "Vercel"],
-      },
-      liveUrl: "https://ai-content-studio.app",
-      githubUrl: "https://github.com/username/ai-content-studio",
-      learned: "Explored cutting-edge AI integration patterns and mastered Svelte's reactive programming model.",
-      color: "from-cyan-400 via-blue-500 to-purple-500",
-      icon: <Brain className="w-6 h-6" />,
-    },
   ]
 
   const allEducation = [
@@ -439,95 +301,11 @@ export default function ModernPortfolio() {
     },
   ]
 
-  // Enhanced project images with 7-10 images per project
+  // Add project images for carousel
   const projectImages = {
-    0: [
-      "/project-1-dashboard.png",
-      "/project-1-kanban.png", 
-      "/project-1-analytics.png",
-      "/project-1-mobile.png",
-      "/project-1-settings.png",
-      "/project-1-notifications.png",
-      "/project-1-collaboration.png",
-      "/project-1-reports.png"
-    ],
-    1: [
-      "/project-2-home.png",
-      "/project-2-expenses.png",
-      "/project-2-categories.png",
-      "/project-2-analytics.png",
-      "/project-2-budget.png",
-      "/project-2-receipt-scan.png",
-      "/project-2-settings.png",
-      "/project-2-reports.png",
-      "/project-2-goals.png"
-    ],
-    2: [
-      "/project-3-pipeline.png",
-      "/project-3-monitoring.png",
-      "/project-3-deployments.png",
-      "/project-3-logs.png",
-      "/project-3-metrics.png",
-      "/project-3-integrations.png",
-      "/project-3-alerts.png",
-      "/project-3-configuration.png"
-    ],
-    3: [
-      "/project-4-dashboard.png",
-      "/project-4-sales.png",
-      "/project-4-customers.png",
-      "/project-4-products.png",
-      "/project-4-forecasting.png",
-      "/project-4-inventory.png",
-      "/project-4-mobile-app.png",
-      "/project-4-reports.png",
-      "/project-4-settings.png",
-      "/project-4-integrations.png"
-    ],
-    4: [
-      "/project-5-courses.png",
-      "/project-5-video-player.png",
-      "/project-5-progress.png",
-      "/project-5-discussions.png",
-      "/project-5-assignments.png",
-      "/project-5-certificates.png",
-      "/project-5-mobile.png",
-      "/project-5-admin.png",
-      "/project-5-analytics.png"
-    ],
-    5: [
-      "/project-6-feed.png",
-      "/project-6-messaging.png",
-      "/project-6-profile.png",
-      "/project-6-groups.png",
-      "/project-6-media.png",
-      "/project-6-privacy.png",
-      "/project-6-notifications.png",
-      "/project-6-search.png"
-    ],
-    6: [
-      "/project-7-dashboard.png",
-      "/project-7-threats.png",
-      "/project-7-vulnerabilities.png",
-      "/project-7-alerts.png",
-      "/project-7-reports.png",
-      "/project-7-compliance.png",
-      "/project-7-users.png",
-      "/project-7-settings.png",
-      "/project-7-analytics.png"
-    ],
-    7: [
-      "/project-8-studio.png",
-      "/project-8-generator.png",
-      "/project-8-templates.png",
-      "/project-8-analytics.png",
-      "/project-8-collaboration.png",
-      "/project-8-workflows.png",
-      "/project-8-ai-models.png",
-      "/project-8-export.png",
-      "/project-8-settings.png",
-      "/project-8-mobile.png"
-    ]
+    0: ["/project-1-1.png", "/project-1-2.png", "/project-1-3.png"],
+    1: ["/project-2-1.png", "/project-2-2.png", "/project-2-3.png"],
+    2: ["/project-3-1.png", "/project-3-2.png", "/project-3-3.png"],
   }
 
   const skills = [
@@ -1745,7 +1523,7 @@ export default function ModernPortfolio() {
           </motion.div>
         </motion.div>
       )}
-       {/* All Projects Modal */}
+      {/* Projects Modal */}
       {showAllProjects && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -1753,6 +1531,7 @@ export default function ModernPortfolio() {
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={(e) => {
+            // Only close if clicking the background, not if a project detail is opening
             if (!selectedProject) {
               setShowAllProjects(false)
             }
@@ -1769,9 +1548,9 @@ export default function ModernPortfolio() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent mb-2">
-                    All Projects ({projects.length})
+                    All Projects
                   </h2>
-                  <p className="text-gray-400">Click on any project to view detailed gallery</p>
+                  <p className="text-gray-400">Click on any project to view details</p>
                 </div>
                 <button
                   onClick={() => setShowAllProjects(false)}
@@ -1791,13 +1570,14 @@ export default function ModernPortfolio() {
                     className="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer group"
                     onClick={(e) => {
                       e.stopPropagation()
+                      console.log("Project clicked:", project.title) // Debug line
                       setSelectedProject(project)
                       setCurrentImageIndex(0)
                     }}
                   >
                     <div className="relative h-64 overflow-hidden">
                       <img
-                        src={project.image || `/placeholder.svg?height=300&width=400&text=${project.title}`}
+                        src={project.image || "/placeholder.svg?height=300&width=400&query=modern web application"}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
@@ -1812,7 +1592,7 @@ export default function ModernPortfolio() {
                       <div className="absolute bottom-0 left-0 right-0 p-6">
                         <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
                         <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          Click to view {projectImages[index]?.length || 8} screenshots →
+                          Click to view details →
                         </p>
                       </div>
                     </div>
@@ -1823,8 +1603,7 @@ export default function ModernPortfolio() {
           </motion.div>
         </motion.div>
       )}
-
-      {/* Project Detail Modal with Enhanced Image Gallery */}
+      {/* Project Detail Modal - Enhanced with Image Carousel */}
       {selectedProject && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -1833,7 +1612,7 @@ export default function ModernPortfolio() {
           className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[70] flex items-center justify-center p-4 overflow-hidden"
           onClick={() => {
             setSelectedProject(null)
-            setCurrentImageIndex(0)
+            setCurrentImageIndex(0) // Reset image index when closing
           }}
         >
           <motion.div
@@ -1843,7 +1622,7 @@ export default function ModernPortfolio() {
             className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl border border-white/20 max-w-7xl w-full h-[90vh] shadow-2xl flex flex-col relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
+            {/* Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-white/10 flex-shrink-0">
               <div>
                 <h1 className="text-3xl font-bold text-white mb-1">{selectedProject.title}</h1>
@@ -1856,42 +1635,42 @@ export default function ModernPortfolio() {
               <button
                 onClick={() => {
                   setSelectedProject(null)
-                  setCurrentImageIndex(0)
+                  setCurrentImageIndex(0) // Reset image index when closing
                 }}
                 className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors border border-white/20 flex-shrink-0"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
-
-            {/* Main Content */}
+            {/* Main Content - No Scroll */}
             <div className="flex-1 p-6 grid lg:grid-cols-2 gap-6 overflow-hidden min-h-0">
-              {/* Left Column - Enhanced Image Gallery */}
+              {/* Left Column - Images */}
               <div className="space-y-4 flex flex-col">
-                {/* Main Image Display */}
+                {/* Image Carousel */}
                 <div className="relative flex-shrink-0">
-                  <div className="relative h-80 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+                  <div className="relative h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
                     <img
                       src={
                         projectImages[projects.indexOf(selectedProject)]?.[currentImageIndex] ||
                         selectedProject.image ||
-                        `/placeholder.svg?height=400&width=600&text=${selectedProject.title} Screenshot ${currentImageIndex + 1}`
+                        "/placeholder.svg?height=300&width=500&query=project screenshot" ||
+                        "/placeholder.svg"
                       }
                       alt={`${selectedProject.title} screenshot ${currentImageIndex + 1}`}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    
-                    {/* Navigation Arrows */}
+                    {/* Always show navigation arrows if there are multiple images */}
                     {projectImages[projects.indexOf(selectedProject)] &&
                       projectImages[projects.indexOf(selectedProject)].length > 1 && (
                         <>
                           <button
                             onClick={(e) => {
                               e.stopPropagation()
-                              const images = projectImages[projects.indexOf(selectedProject)]
                               setCurrentImageIndex(
-                                currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1
+                                currentImageIndex === 0
+                                  ? projectImages[projects.indexOf(selectedProject)].length - 1
+                                  : currentImageIndex - 1,
                               )
                             }}
                             className="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/90 transition-colors border border-white/30 shadow-lg"
@@ -1901,9 +1680,10 @@ export default function ModernPortfolio() {
                           <button
                             onClick={(e) => {
                               e.stopPropagation()
-                              const images = projectImages[projects.indexOf(selectedProject)]
                               setCurrentImageIndex(
-                                currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1
+                                currentImageIndex === projectImages[projects.indexOf(selectedProject)].length - 1
+                                  ? 0
+                                  : currentImageIndex + 1,
                               )
                             }}
                             className="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/70 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/90 transition-colors border border-white/30 shadow-lg"
@@ -1912,8 +1692,7 @@ export default function ModernPortfolio() {
                           </button>
                         </>
                       )}
-
-                    {/* Image Counter */}
+                    {/* Image counter overlay */}
                     {projectImages[projects.indexOf(selectedProject)] &&
                       projectImages[projects.indexOf(selectedProject)].length > 1 && (
                         <div className="absolute top-4 left-4 px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full border border-white/30">
@@ -1923,35 +1702,63 @@ export default function ModernPortfolio() {
                         </div>
                       )}
                   </div>
-
-                  {/* Image Thumbnails */}
+                  {/* Image Indicators */}
                   {projectImages[projects.indexOf(selectedProject)] &&
                     projectImages[projects.indexOf(selectedProject)].length > 1 && (
-                      <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
-                        {projectImages[projects.indexOf(selectedProject)].map((image, index) => (
+                      <div className="flex justify-center gap-2 mt-3">
+                        {projectImages[projects.indexOf(selectedProject)].map((_, index) => (
                           <button
                             key={index}
                             onClick={(e) => {
                               e.stopPropagation()
                               setCurrentImageIndex(index)
                             }}
-                            className={`relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                              currentImageIndex === index
-                                ? 'border-purple-400 ring-2 ring-purple-400/50'
-                                : 'border-white/20 hover:border-white/40'
-                            }`}
-                          >
-                            <img
-                              src={image || `/placeholder.svg?height=80&width=80&text=${index + 1}`}
-                              alt={`Thumbnail ${index + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </button>
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentImageIndex === index
+                                ? `bg-gradient-to-r ${selectedProject.color}`
+                                : "bg-white/40 hover:bg-white/60"
+                              }`}
+                          />
                         ))}
                       </div>
                     )}
+                  {/* Navigation buttons below image */}
+                  {projectImages[projects.indexOf(selectedProject)] &&
+                    projectImages[projects.indexOf(selectedProject)].length > 1 && (
+                      <div className="flex justify-between items-center mt-4">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setCurrentImageIndex(
+                              currentImageIndex === 0
+                                ? projectImages[projects.indexOf(selectedProject)].length - 1
+                                : currentImageIndex - 1,
+                            )
+                          }}
+                          className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-colors text-white text-sm"
+                        >
+                          <ArrowRight className="w-4 h-4 rotate-180" />
+                          Previous
+                        </button>
+                        <span className="text-gray-400 text-sm">
+                          Image {currentImageIndex + 1} of {projectImages[projects.indexOf(selectedProject)].length}
+                        </span>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setCurrentImageIndex(
+                              currentImageIndex === projectImages[projects.indexOf(selectedProject)].length - 1
+                                ? 0
+                                : currentImageIndex + 1,
+                            )
+                          }}
+                          className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-colors text-white text-sm"
+                        >
+                          Next
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    )}
                 </div>
-
                 {/* Action Buttons */}
                 <div className="space-y-3 flex-shrink-0">
                   <Button
@@ -1961,12 +1768,14 @@ export default function ModernPortfolio() {
                   >
                     <a href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
                       <Globe className="w-5 h-5 mr-2" />
-                      View Live Project
+                      View Live Demo
+                      <ArrowRight className="w-5 h-5 ml-2" />
                     </a>
                   </Button>
                   <Button
                     size="lg"
-                    className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20"
+                    variant="outline"
+                    className="w-full border-white/30 text-white hover:bg-white/10 bg-transparent"
                     asChild
                   >
                     <a href={selectedProject.githubUrl} target="_blank" rel="noopener noreferrer">
@@ -1976,54 +1785,114 @@ export default function ModernPortfolio() {
                   </Button>
                 </div>
               </div>
-
-              {/* Right Column - Project Details */}
-              <div className="space-y-6 overflow-y-auto">
-                {/* Description */}
+              {/* Right Column - Project Information */}
+              <div className="space-y-4 overflow-y-auto min-h-0 pr-2">
+                {/* Project Definition */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">About This Project</h3>
-                  <p className="text-gray-300 leading-relaxed">{selectedProject.description}</p>
-                </div>
-
-                {/* Technologies */}
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Technologies Used</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300 border border-white/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    <div
+                      className={`w-6 h-6 bg-gradient-to-r ${selectedProject.color} rounded-lg flex items-center justify-center`}
+                    >
+                      <Target className="w-4 h-4 text-white" />
+                    </div>
+                    Project Definition
+                  </h2>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                    <p className="text-gray-300 leading-relaxed">{selectedProject.summary}</p>
                   </div>
                 </div>
-
+                {/* Tech Used */}
+                <div>
+                  <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    <div
+                      className={`w-6 h-6 bg-gradient-to-r ${selectedProject.color} rounded-lg flex items-center justify-center`}
+                    >
+                      <Code className="w-4 h-4 text-white" />
+                    </div>
+                    Tech Used
+                  </h2>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 space-y-3">
+                    <div>
+                      <h3 className="text-white font-medium mb-2">Frontend</h3>
+                      <div className="flex flex-wrap gap-1">
+                        {selectedProject.techStack.frontend.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className={`px-2 py-1 bg-gradient-to-r ${selectedProject.color} text-white text-xs rounded-full`}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-medium mb-2">Backend</h3>
+                      <div className="flex flex-wrap gap-1">
+                        {selectedProject.techStack.backend.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className={`px-2 py-1 bg-gradient-to-r ${selectedProject.color} text-white text-xs rounded-full`}
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-medium mb-2">Database & Tools</h3>
+                      <div className="flex flex-wrap gap-1">
+                        {[...selectedProject.techStack.database, ...selectedProject.techStack.tools].map(
+                          (tech, idx) => (
+                            <span
+                              key={idx}
+                              className={`px-2 py-1 bg-gradient-to-r ${selectedProject.color} text-white text-xs rounded-full`}
+                            >
+                              {tech}
+                            </span>
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 {/* Key Features */}
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Key Features</h3>
-                  <div className="space-y-2">
-                    {selectedProject.features.map((feature, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${selectedProject.color} flex-shrink-0`} />
-                        <span className="text-gray-300">{feature}</span>
-                      </div>
-                    ))}
+                  <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    <div
+                      className={`w-6 h-6 bg-gradient-to-r ${selectedProject.color} rounded-lg flex items-center justify-center`}
+                    >
+                      <Sparkles className="w-4 h-4 text-white" />
+                    </div>
+                    Key Features
+                  </h2>
+                  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                    <div className="grid grid-cols-1 gap-2">
+                      {selectedProject.features.map((feature, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 p-2 rounded-lg bg-white/5 border border-white/10"
+                        >
+                          <div
+                            className={`w-2 h-2 rounded-full bg-gradient-to-r ${selectedProject.color} mt-2 flex-shrink-0`}
+                          />
+                          <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                {/* Additional Info */}
-                <div className="pt-4 border-t border-white/10">
-                  <div className="flex items-center gap-4 text-sm text-gray-400">
-                    <div className="flex items-center gap-1">
-                      <ExternalLink className="w-4 h-4" />
-                      <span>Live Demo Available</span>
+                {/* Key Learning */}
+                <div>
+                  <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+                    <div
+                      className={`w-6 h-6 bg-gradient-to-r ${selectedProject.color} rounded-lg flex items-center justify-center`}
+                    >
+                      <Award className="w-4 h-4 text-white" />
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Github className="w-4 h-4" />
-                      <span>Open Source</span>
-                    </div>
+                    Key Learning
+                  </h2>
+                  <div className="bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                    <p className="text-gray-300 italic leading-relaxed text-sm">{selectedProject.learned}</p>
                   </div>
                 </div>
               </div>
@@ -2031,9 +1900,6 @@ export default function ModernPortfolio() {
           </motion.div>
         </motion.div>
       )}
-    </div>
-  );
-}
       {/* Achievements Modal */}
       {showAllAchievements && (
         <motion.div
