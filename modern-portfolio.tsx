@@ -109,7 +109,7 @@ export default function ModernPortfolio() {
       tagline: "Collaborative project management with real-time magic ✨",
       summary:
         "A full-stack web application that transforms team collaboration with real-time updates, intelligent task management, and beautiful analytics. Built to solve scattered project communication with an intuitive dashboard.",
-      image: "/project-1.png",
+      image: "/project-1.png", "/project-1.png", "/project-1.png",
       features: [
         "🚀 Real-time WebSocket collaboration",
         "🎯 Drag-and-drop Kanban boards",
