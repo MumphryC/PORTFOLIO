@@ -157,32 +157,6 @@ export default function ModernPortfolio() {
       icon: <Smartphone className="w-6 h-6" />,
     },
     {
-      title: "ExpenseTracker Mobile",
-      tagline: "Smart expense tracking that learns from you 🧠",
-      summary:
-        "Flutter mobile app with ML-powered categorization and beautiful analytics. Revolutionizes personal finance management with intelligent automation and stunning visualizations that adapt to user behavior.",
-      image: "/project-2.png",
-      features: [
-        "🧠 ML-powered expense categorization",
-        "📱 Cross-platform Flutter architecture",
-        "⚡ Offline-first with smart sync",
-        "📸 OCR receipt scanning",
-        "🔮 Predictive budget insights",
-        "💰 Multi-currency support",
-      ],
-      techStack: {
-        frontend: ["Flutter", "Dart"],
-        backend: ["Django", "Python"],
-        database: ["SQLite"],
-        tools: ["Firebase", "Figma", "Git"],
-      },
-      liveUrl: "https://play.google.com/store/apps/expensetracker",
-      githubUrl: "https://github.com/username/expense-tracker",
-      learned: "Deep-dived into Flutter state management and implemented sophisticated offline-first architecture.",
-      color: "from-green-400 via-emerald-500 to-teal-500",
-      icon: <Smartphone className="w-6 h-6" />,
-    },
-    {
       title: "DevOps Pipeline Manager",
       tagline: "Orchestrate deployments like a symphony 🎼",
       summary:
@@ -327,12 +301,38 @@ export default function ModernPortfolio() {
     },
   ]
 
-  // Add project images for carousel
-  const projectImages = {
-    0: ["/project-1-1.png", "/project-1-2.png", "/project-1-3.png"],
-    1: ["/project-2-1.png", "/project-2-2.png", "/project-2-3.png"],
-    2: ["/project-3-1.png", "/project-3-2.png", "/project-3-3.png"],
-  }
+  const projectImages = [
+  [
+    "/placeholder.svg?height=400&width=600&text=Portfolio+Home",
+    "/placeholder.svg?height=400&width=600&text=About+Section",
+    "/placeholder.svg?height=400&width=600&text=Projects+Gallery",
+    "/placeholder.svg?height=400&width=600&text=Skills+Section",
+    "/placeholder.svg?height=400&width=600&text=Contact+Form",
+    "/placeholder.svg?height=400&width=600&text=Blog+Section",
+    "/placeholder.svg?height=400&width=600&text=Responsive+Design",
+    "/placeholder.svg?height=400&width=600&text=Animation+Demo"
+  ],
+  [
+    "/placeholder.svg?height=400&width=600&text=Chat+Interface",
+    "/placeholder.svg?height=400&width=600&text=Video+Call",
+    "/placeholder.svg?height=400&width=600&text=File+Sharing",
+    "/placeholder.svg?height=400&width=600&text=Group+Chat",
+    "/placeholder.svg?height=400&width=600&text=User+Profile",
+    "/placeholder.svg?height=400&width=600&text=Settings",
+    "/placeholder.svg?height=400&width=600&text=Mobile+Chat",
+    "/placeholder.svg?height=400&width=600&text=Security+Features"
+  ],
+  [
+    "/placeholder.svg?height=400&width=600&text=Analytics+Dashboard",
+    "/placeholder.svg?height=400&width=600&text=Data+Visualization",
+    "/placeholder.svg?height=400&width=600&text=Reports+Section",
+    "/placeholder.svg?height=400&width=600&text=Real-time+Data",
+    "/placeholder.svg?height=400&width=600&text=Custom+Charts",
+    "/placeholder.svg?height=400&width=600&text=Data+Export",
+    "/placeholder.svg?height=400&width=600&text=API+Documentation",
+    "/placeholder.svg?height=400&width=600&text=User+Management"
+  ]
+];
 
   const skills = [
     { name: "Python", level: 90, color: "from-blue-400 to-blue-600" },
